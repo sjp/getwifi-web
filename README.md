@@ -1,4 +1,4 @@
-# wifiqr
+# getwifi-web
 
 ## CLI Commands
 *   `npm install`: Installs dependencies
