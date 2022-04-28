@@ -1,6 +1,6 @@
 {
-  "name": "wifiqr",
-  "short_name": "wifiqr",
+  "name": "GetWifi",
+  "short_name": "GetWifi",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",

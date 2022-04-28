@@ -1,12 +1,12 @@
 import { FunctionalComponent, h } from 'preact';
 import { Route, Router } from 'preact-router';
 
-import Home from '../routes/home';
-import Profile from '../routes/profile';
-import NotFoundPage from '../routes/notfound';
-import Header from './header';
+import { Home } from '../routes/home/Home';
+import { Profile } from '../routes/profile/Profile';
+import { NotFound } from '../routes/notfound/NotFound';
+import { Header } from './header/Header';
 
-const App: FunctionalComponent = () => {
+export const App: FunctionalComponent = () => {
     return (
         <div id="preact_root">
             <Header />
@@ -14,10 +14,8 @@ const App: FunctionalComponent = () => {
                 <Route path="/" component={Home} />
                 <Route path="/profile/" component={Profile} user="me" />
                 <Route path="/profile/:user" component={Profile} />
-                <NotFoundPage default />
+                <NotFound default />
             </Router>
         </div>
     );
 };
-
-export default App;
