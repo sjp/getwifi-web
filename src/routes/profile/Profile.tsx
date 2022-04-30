@@ -1,6 +1,7 @@
-import { FunctionalComponent, h } from 'preact';
-import { useEffect, useState } from 'preact/hooks';
-import style from './style.css';
+import { FunctionalComponent, h } from "preact";
+import { useEffect, useState } from "preact/hooks";
+
+import style from "./style.css";
 
 interface Props {
     user: string;
@@ -26,15 +27,14 @@ export const Profile: FunctionalComponent<Props> = ({ user }: Props) => {
     };
 
     return (
-        <div class={style.profile}>
+        <div className={style.profile}>
             <h1>Profile: {user}</h1>
             <p>This is the user profile for a user named {user}.</p>
 
             <div>Current time: {new Date(time).toLocaleString()}</div>
 
             <p>
-                <button onClick={increment}>Click Me</button> Clicked {count}{' '}
-                times.
+                <button onClick={increment}>Click Me</button> Clicked {count} times.
             </p>
         </div>
     );
