@@ -1,48 +1,48 @@
 {
-	"version": "2.0.0",
-	"tasks": [
-		{
-			"type": "npm",
-			"script": "test",
-			"group": {
-				"kind": "test",
-				"isDefault": true
-			},
-			"problemMatcher": [],
-			"label": "npm: test",
-			"detail": "jest ./tests"
-		},
-		{
-			"type": "npm",
-			"script": "build",
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			},
-			"problemMatcher": [],
-			"label": "npm: build",
-			"detail": "preact build"
-		},
-		{
-			"type": "npm",
-			"script": "dev",
-			"problemMatcher": [],
-			"label": "npm: dev",
-			"detail": "preact watch"
-		},
-		{
-			"type": "npm",
-			"script": "serve",
-			"problemMatcher": [],
-			"label": "npm: serve",
-			"detail": "sirv build --port 8080 --cors --single"
-		},
-		{
-			"type": "npm",
-			"script": "lint",
-			"problemMatcher": [],
-			"label": "npm: lint",
-			"detail": "eslint 'src/**/*.{js,jsx,ts,tsx}'"
-		}
-	]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "test",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "label": "npm: test",
+      "detail": "jest ./tests"
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "label": "npm: build",
+      "detail": "preact build"
+    },
+    {
+      "type": "npm",
+      "script": "dev",
+      "problemMatcher": [],
+      "label": "npm: dev",
+      "detail": "preact watch"
+    },
+    {
+      "type": "npm",
+      "script": "serve",
+      "problemMatcher": [],
+      "label": "npm: serve",
+      "detail": "sirv build --port 8080 --cors --single"
+    },
+    {
+      "type": "npm",
+      "script": "lint",
+      "problemMatcher": [],
+      "label": "npm: lint",
+      "detail": "eslint 'src/**/*.{js,jsx,ts,tsx}'"
+    }
+  ]
 }
