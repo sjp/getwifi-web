@@ -31,7 +31,7 @@
     "dependencies": {
         "preact": "^10.9.0",
         "preact-render-to-string": "^5.2.0",
-        "preact-router": "^3.2.1"
+        "preact-router": "^4.0.1"
     },
     "devDependencies": {
         "@types/enzyme": "^3.10.5",
