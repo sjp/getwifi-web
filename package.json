@@ -36,7 +36,7 @@
     "devDependencies": {
         "@types/enzyme": "^3.10.5",
         "@types/jest": "^27.5.0",
-        "@typescript-eslint/eslint-plugin": "^5.30.6",
+        "@typescript-eslint/eslint-plugin": "^5.30.7",
         "@typescript-eslint/parser": "^5.30.7",
         "enzyme": "^3.11.0",
         "enzyme-adapter-preact-pure": "^4.0.1",
