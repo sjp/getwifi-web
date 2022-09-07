@@ -30,7 +30,7 @@
     },
     "dependencies": {
         "preact": "^10.10.6",
-        "preact-render-to-string": "^5.2.2",
+        "preact-render-to-string": "^5.2.3",
         "preact-router": "^3.2.1"
     },
     "devDependencies": {
