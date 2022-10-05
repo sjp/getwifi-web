@@ -29,7 +29,7 @@
         ]
     },
     "dependencies": {
-        "preact": "^10.11.0",
+        "preact": "^10.11.1",
         "preact-render-to-string": "^5.2.4",
         "preact-router": "^3.2.1"
     },
