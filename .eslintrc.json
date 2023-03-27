@@ -55,7 +55,7 @@
         "react/prop-types": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
         "no-alert": "error",
-        "no-console": "warn",
+        "no-console": "error",
         "no-debugger": "error",
         "jsx-a11y/anchor-is-valid": [
             "error",
