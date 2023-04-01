@@ -1,4 +1,4 @@
-import { Route, Router } from "wouter";
+import { Route, Router, Switch } from "wouter";
 import { PrivateWifi } from "./private-wifi";
 import { Root } from "./root";
 import { Wifi } from "./wifi";
@@ -11,12 +11,14 @@ export const App = () => {
     <>
       <QueryClientProvider client={queryClient}>
         <Router>
-          <Route path="/" component={Root} />
-          <Route path="/wifi/:shortCode" component={Wifi} />
-          <Route path="/w/:shortCode" component={Wifi} />
-          <Route path="/private-wifi/:code" component={PrivateWifi} />
-          <Route path="/pw/:code" component={PrivateWifi} />
-          <Route path="/not-found" component={NotFound} />
+          <Switch>
+            <Route path="/" component={Root} />
+            <Route path="/wifi/:shortCode" component={Wifi} />
+            <Route path="/w/:shortCode" component={Wifi} />
+            <Route path="/private-wifi/:code" component={PrivateWifi} />
+            <Route path="/pw/:code" component={PrivateWifi} />
+            <Route path="/:path" component={NotFound} />
+          </Switch>
         </Router>
       </QueryClientProvider>
     </>
