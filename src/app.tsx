@@ -17,7 +17,7 @@ export const App = () => {
             <Route path="/w/:shortCode" component={Wifi} />
             <Route path="/private-wifi/:code" component={PrivateWifi} />
             <Route path="/pw/:code" component={PrivateWifi} />
-            <Route path="/:path" component={NotFound} />
+            <Route path="/:path*" component={NotFound} />
           </Switch>
         </Router>
       </QueryClientProvider>
