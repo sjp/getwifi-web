@@ -22,9 +22,10 @@ export interface GetWifiResponse {
   hidden: boolean;
 }
 
-const getWifiByCode = (wifiCode: string): Promise<GetWifiResponse> => {
+const getWifiByCode = async (wifiCode: string): Promise<GetWifiResponse> => {
   const url = `${apiBasePath}/wifi/${wifiCode}`;
-  return fetch(url).then((res) => res.json());
+  const res = await fetch(url);
+  return await res.json();
 };
 
 export const useGetWifi = (wifiCode: string): UseQueryResult<GetWifiResponse, ProblemDetails> => {
@@ -38,12 +39,13 @@ export interface DeleteWifiRequest {
   deletionCode: string;
 }
 
-export const deleteWifi = (request: DeleteWifiRequest): Promise<void> => {
+export const deleteWifi = async (request: DeleteWifiRequest): Promise<void> => {
   const params = new URLSearchParams({ deletionCode: request.deletionCode });
   const url = `${apiBasePath}/wifi/${request.shortCode}?${params}`;
   const requestOptions: RequestInit = { method: "DELETE" };
 
-  return fetch(url, requestOptions).then((res) => res.json());
+  const res = await fetch(url, requestOptions);
+  return await res.json();
 };
 
 export interface SaveWifiRequest {
@@ -59,7 +61,7 @@ export interface SaveWifiResponse {
   deletionCode: string;
 }
 
-export const saveWifi = (request: SaveWifiRequest): Promise<SaveWifiResponse> => {
+export const saveWifi = async (request: SaveWifiRequest): Promise<SaveWifiResponse> => {
   const url = `${apiBasePath}/wifi`;
   const requestOptions: RequestInit = {
     method: "POST",
@@ -67,5 +69,6 @@ export const saveWifi = (request: SaveWifiRequest): Promise<SaveWifiResponse> =>
     body: JSON.stringify(request),
   };
 
-  return fetch(url, requestOptions).then((res) => res.json());
+  const res = await fetch(url, requestOptions);
+  return await res.json();
 };
