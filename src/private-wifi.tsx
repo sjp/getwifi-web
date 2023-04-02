@@ -1,28 +1,6 @@
-import { QRCodeSVG } from "qrcode.react";
 import "./private-wifi.css";
 import { fromPrivateShare } from "./serialization";
-import { WifiDetails } from "./models";
-import { generateQrCode } from "./qr";
-
-export interface DisplayWifiDetailsProps {
-  wifi: WifiDetails;
-}
-
-export const DisplayWifiDetails = ({ wifi }: Readonly<DisplayWifiDetailsProps>) => {
-  const qrCode = generateQrCode(wifi);
-
-  return (
-    <>
-      <QRCodeSVG code={qrCode} />
-      <pre>
-        ssid: {wifi.ssid}
-        password: {wifi.password}
-        authType: {wifi.authType || "none"}
-        hidden: {(wifi.hidden || false).toString()}
-      </pre>
-    </>
-  );
-};
+import { WifiQrCode } from "./wifi-qr";
 
 const NotFound = () => {
   return <pre>No code provided...</pre>;
@@ -54,5 +32,5 @@ export const PrivateWifi = ({ params }: Readonly<PrivateWifiProps>) => {
     return <InvalidCode code={params.code} />;
   }
 
-  return <DisplayWifiDetails wifi={wifi} />;
+  return <WifiQrCode wifi={wifi} />;
 };
