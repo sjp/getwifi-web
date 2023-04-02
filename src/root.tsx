@@ -16,12 +16,10 @@ export const Root = () => {
           <img src={preactLogo} className="logo preact" alt="Preact logo" />
         </a>
       </div>
-      <h1>Vite + Preact</h1>
+      <h1>getwifi.link</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/root.tsx</code> and save to test HMR
-        </p>
+        <p>Create and share wifi logins easily and securely.</p>
       </div>
       <p className="read-the-docs">Click on the Vite and Preact logos to learn more</p>
     </>
