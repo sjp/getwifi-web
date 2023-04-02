@@ -2,6 +2,7 @@ import "./wifi.css";
 import { ProblemDetails, useGetWifi } from "./api";
 import { useOnlineStatus } from "./hooks";
 import { WifiQrCode } from "./wifi-qr";
+import { Loader } from "./loader";
 
 interface NotFoundProps {
   shortCode: string;
@@ -9,10 +10,6 @@ interface NotFoundProps {
 
 const NotFound = ({ shortCode }: Readonly<NotFoundProps>) => {
   return <div>Couldn&apos;t find a wifi record named {shortCode}</div>;
-};
-
-const Loading = () => {
-  return <div>&hellip;</div>;
 };
 
 interface OfflineBannerProps {
@@ -43,7 +40,7 @@ const Error = ({ error, refetch }: Readonly<ErrorProps>) => {
     <>
       <div>error status {error?.status}</div>
       <div>Oopsie woopsie, something went wrong</div>
-      <button onSubmit={() => refetch()}>Refresh</button>
+      <button onSubmit={() => refetch()}>Retry</button>
     </>
   );
 };
@@ -58,8 +55,9 @@ export interface WifiProps {
 
 export const Wifi = ({ params }: Readonly<WifiProps>) => {
   const { isLoading, isSuccess, data, isError, error, refetch } = useGetWifi(params.shortCode);
+
   if (isLoading) {
-    return <Loading />;
+    return <Loader color="yellow" />;
   }
 
   if (isError) {

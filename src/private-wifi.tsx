@@ -3,7 +3,7 @@ import { fromPrivateShare } from "./serialization";
 import { WifiQrCode } from "./wifi-qr";
 
 const NotFound = () => {
-  return <pre>No code provided...</pre>;
+  return <pre>No code provided&hellip;</pre>;
 };
 
 interface InvalidCodeProps {
