@@ -1,27 +1,62 @@
-import { useState } from "preact/hooks";
-import preactLogo from "./assets/preact.svg";
-import viteLogo from "/vite.svg";
+import { useForm } from "react-hook-form";
+import { WifiDetails } from "./models";
 import "./root.css";
+import { WifiQrCode } from "./wifi-qr";
 
 export const Root = () => {
-  const [count, setCount] = useState(0);
+  const { register, handleSubmit, formState, watch } = useForm<WifiDetails>();
+  // eslint-disable-next-line no-console
+  const onSubmit = (data: any) => console.log(data);
+
+  const [ssid, password, authType, hidden] = watch(["ssid", "password", "authType", "hidden"]);
+
+  const wifi: WifiDetails = {
+    ssid: ssid,
+    password: password,
+    authType: authType,
+    hidden: hidden,
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://preactjs.com" target="_blank" rel="noreferrer">
-          <img src={preactLogo} className="logo preact" alt="Preact logo" />
-        </a>
-      </div>
-      <h1>getwifi.link</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>Create and share wifi logins easily and securely.</p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and Preact logos to learn more</p>
+      {formState.isValid && <WifiQrCode wifi={wifi} />}
+      <br />
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div>
+          <label>
+            SSID / Network ID
+            <input
+              {...register("ssid", { required: true, minLength: 1, maxLength: 1000 })}
+              type="text"
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            Password
+            <input
+              {...register("password", { required: false, minLength: 1, maxLength: 1000 })}
+              type="password"
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            Encryption (usually <code>WPA</code> if available)
+            <select {...register("authType")}>
+              <option value="none">None</option>
+              <option value="wep">WEP</option>
+              <option value="wpa">WPA/WPA2/WPA3</option>
+            </select>
+          </label>
+        </div>
+        <div>
+          <label>
+            Hidden
+            <input {...register("hidden")} type="checkbox" />
+          </label>
+        </div>
+      </form>
     </>
   );
 };

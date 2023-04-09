@@ -1,7 +1,14 @@
-import { useQuery, UseQueryResult } from "react-query";
-import { QueryClient } from "react-query";
+import { useQuery, UseQueryResult } from "@tanstack/react-query";
+import { QueryClient } from "@tanstack/react-query";
 
 export const queryClient = new QueryClient();
+
+export interface ApiResponse<Data, Error> {
+  ok: boolean;
+  status: number;
+  data: Data;
+  error: Error;
+}
 
 export interface ProblemDetails {
   type: string;
@@ -22,14 +29,25 @@ export interface GetWifiResponse {
   hidden: boolean;
 }
 
-const getWifiByCode = async (wifiCode: string): Promise<GetWifiResponse> => {
+const getWifiByCode = async (
+  wifiCode: string,
+): Promise<ApiResponse<GetWifiResponse, ProblemDetails>> => {
   const url = `${apiBasePath}/wifi/${wifiCode}`;
-  const res = await fetch(url);
-  return await res.json();
+  const response = await fetch(url);
+  const result = await response.json();
+
+  return {
+    ok: response.ok,
+    status: response.status,
+    data: response.ok ? result : null,
+    error: !response.ok ? result : null,
+  };
 };
 
-export const useGetWifi = (wifiCode: string): UseQueryResult<GetWifiResponse, ProblemDetails> => {
-  return useQuery<GetWifiResponse, ProblemDetails>(["wifi", { id: wifiCode }], () =>
+export const useGetWifi = (
+  wifiCode: string,
+): UseQueryResult<ApiResponse<GetWifiResponse, ProblemDetails>> => {
+  return useQuery<ApiResponse<GetWifiResponse, ProblemDetails>>(["wifi", { id: wifiCode }], () =>
     getWifiByCode(wifiCode),
   );
 };
@@ -39,7 +57,11 @@ export interface DeleteWifiRequest {
   deletionCode: string;
 }
 
-export const deleteWifi = async (request: DeleteWifiRequest): Promise<void> => {
+export interface DeleteWifiResponse {}
+
+export const deleteWifi = async (
+  request: DeleteWifiRequest,
+): Promise<ApiResponse<DeleteWifiResponse, ProblemDetails>> => {
   const params = new URLSearchParams({ deletionCode: request.deletionCode });
   const url = `${apiBasePath}/wifi/${request.shortCode}?${params}`;
   const requestOptions: RequestInit = { method: "DELETE" };
@@ -61,7 +83,9 @@ export interface SaveWifiResponse {
   deletionCode: string;
 }
 
-export const saveWifi = async (request: SaveWifiRequest): Promise<SaveWifiResponse> => {
+export const saveWifi = async (
+  request: SaveWifiRequest,
+): Promise<ApiResponse<SaveWifiResponse, ProblemDetails>> => {
   const url = `${apiBasePath}/wifi`;
   const requestOptions: RequestInit = {
     method: "POST",
