@@ -2,7 +2,7 @@ import { Route, Router, Switch } from "wouter";
 import { PrivateWifi } from "./private-wifi";
 import { Root } from "./root";
 import { Wifi } from "./wifi";
-import { QueryClientProvider } from "react-query";
+import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./api";
 import { NotFound } from "./not-found";
 
