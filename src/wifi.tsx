@@ -54,25 +54,26 @@ export interface WifiProps {
 }
 
 export const Wifi = ({ params }: Readonly<WifiProps>) => {
-  const { isLoading, isSuccess, data, isError, error, refetch } = useGetWifi(params.shortCode);
+  const { isLoading, isSuccess, data, isError, refetch } = useGetWifi(params.shortCode);
 
   if (isLoading) {
     return <Loader color="yellow" />;
   }
 
-  if (isError) {
-    return <Error error={error} refetch={refetch} />;
+  if (isError || (isSuccess && data.error)) {
+    return <Error error={data?.error || null} refetch={refetch} />;
   }
 
-  if (isSuccess && (!data || !data?.ssid)) {
+  if (isSuccess && !data?.data) {
     return <NotFound shortCode={params.shortCode} />;
   }
 
+  const response = data.data;
   const wifiData = {
-    ssid: data!.ssid,
-    password: data!.password,
-    authType: data!.authType,
-    hidden: data!.hidden,
+    ssid: response!.ssid,
+    password: response!.password,
+    authType: response!.authType,
+    hidden: response!.hidden,
   };
 
   return <WifiQrCode wifi={wifiData} />;
