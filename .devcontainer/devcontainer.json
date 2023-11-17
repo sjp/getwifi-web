@@ -8,11 +8,14 @@
         "args": { "VARIANT": "20-bullseye" }
     },
 
-    // Set *default* container specific settings.json values on container create.
-    "settings": {},
-
-    // Add the IDs of extensions you want installed when the container is created.
-    "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"],
+    "customizations": {
+        "vscode": {
+            // Set *default* container specific settings.json values on container create.
+            "settings": {},
+            // Add the IDs of extensions you want installed when the container is created.
+            "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
+        }
+    },
 
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     "forwardPorts": [8080],
