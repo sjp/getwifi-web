@@ -36,7 +36,7 @@
         "wouter": "^2.12.1"
     },
     "devDependencies": {
-        "@preact/preset-vite": "^2.6.0",
+        "@preact/preset-vite": "^2.7.0",
         "@typescript-eslint/eslint-plugin": "^6.11.0",
         "@typescript-eslint/parser": "^6.11.0",
         "eslint": "^8.53.0",
