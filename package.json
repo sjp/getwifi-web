@@ -33,7 +33,7 @@
         "react": "npm:@preact/compat@^17.1.2",
         "react-dom": "npm:@preact/compat@^17.1.2",
         "react-hook-form": "^7.51.0",
-        "wouter": "^3.0.0"
+        "wouter": "^3.0.2"
     },
     "devDependencies": {
         "@preact/preset-vite": "^2.8.1",
