@@ -32,7 +32,7 @@
         "qrcode.react": "^3.1.0",
         "react": "npm:@preact/compat@^17.1.2",
         "react-dom": "npm:@preact/compat@^17.1.2",
-        "react-hook-form": "^7.51.5",
+        "react-hook-form": "^7.52.0",
         "wouter": "^3.0.0"
     },
     "devDependencies": {
