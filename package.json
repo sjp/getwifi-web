@@ -14,7 +14,7 @@
         "extends": [
             "eslint:recommended",
             "preact",
-            "plugin:@typescript-eslint/recommended",
+            "plugin:@typescript-eslint/strict-type-checked",
             "plugin:jsx-a11y/recommended",
             "plugin:prettier/recommended"
         ],
@@ -36,16 +36,8 @@
         "wouter": "^3.0.0"
     },
     "devDependencies": {
+        "@biomejs/biome": "^1.8.3",
         "@preact/preset-vite": "^2.9.0",
-        "@typescript-eslint/eslint-plugin": "^7.18.0",
-        "@typescript-eslint/parser": "^7.18.0",
-        "eslint": "^8.57.0",
-        "eslint-config-preact": "^1.4.0",
-        "eslint-config-prettier": "^9.1.0",
-        "eslint-plugin-import": "^2.29.1",
-        "eslint-plugin-jsx-a11y": "^6.9.0",
-        "eslint-plugin-prettier": "^5.2.1",
-        "eslint-plugin-simple-import-sort": "^12.1.1",
         "typescript": "^5.5.4",
         "vite": "^5.3.5"
     }

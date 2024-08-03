@@ -5,7 +5,7 @@
         // Update 'VARIANT' to pick a Node version: 16, 14, 12.
         // Append -bullseye or -buster to pin to an OS version.
         // Use -bullseye variants on local arm64/Apple Silicon.
-        "args": { "VARIANT": "20-bullseye" }
+        "args": { "VARIANT": "22-bookworm" }
     },
 
     "customizations": {
@@ -13,8 +13,13 @@
             // Set *default* container specific settings.json values on container create.
             "settings": {},
             // Add the IDs of extensions you want installed when the container is created.
-            "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
+            "extensions": ["biomejs.biome"]
         }
+    },
+
+    "runArgs": ["--userns=keep-id"],
+    "containerEnv": {
+        "HOME": "/home/node"
     },
 
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
