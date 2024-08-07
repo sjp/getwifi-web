@@ -9,31 +9,12 @@
         "build": "tsc && vite build",
         "preview": "vite preview"
     },
-    "eslintConfig": {
-        "parser": "@typescript-eslint/parser",
-        "extends": [
-            "eslint:recommended",
-            "preact",
-            "plugin:@typescript-eslint/strict-type-checked",
-            "plugin:jsx-a11y/recommended",
-            "plugin:prettier/recommended"
-        ],
-        "plugins": [
-            "simple-import-sort",
-            "prettier"
-        ],
-        "ignorePatterns": [
-            "build/"
-        ]
-    },
     "dependencies": {
-        "@tanstack/react-query": "^4.36.1",
         "preact": "^10.23.1",
         "qrcode.react": "^3.1.0",
         "react": "npm:@preact/compat@^17.1.2",
         "react-dom": "npm:@preact/compat@^17.1.2",
-        "react-hook-form": "^7.52.2",
-        "wouter": "^3.0.0"
+        "react-hook-form": "^7.52.2"
     },
     "devDependencies": {
         "@biomejs/biome": "^1.8.3",

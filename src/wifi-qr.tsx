@@ -1,7 +1,7 @@
 import { QRCodeSVG } from "qrcode.react";
-import { WifiDetails } from "./models";
+import type { WifiDetails } from "./models";
 
-const escape = (input: string): string => {
+const escapeInput = (input: string): string => {
   if (!input) {
     return input;
   }
@@ -15,12 +15,12 @@ const escape = (input: string): string => {
 };
 
 const generateQrCode = (input: WifiDetails): string => {
-  const ssid = `S:${escape(input.ssid)};`;
-  const password = input.password ? `P:${escape(input.password)};` : "";
+  const ssid = `S:${escapeInput(input.ssid)};`;
+  const password = input.password ? `P:${escapeInput(input.password)};` : "";
   const enc =
     !!input.authType && input.authType !== "none" ? `T:${input.authType.toUpperCase()};` : "";
   const hidden = input.hidden ? "H:true;" : "";
-  return "WIFI:" + ssid + password + enc + hidden;
+  return `WIFI:${ssid}${password}${enc}${hidden}`;
 };
 
 export interface WifiQrCodeProps {

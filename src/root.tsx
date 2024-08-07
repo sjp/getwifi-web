@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { WifiDetails } from "./models";
+import type { WifiDetails } from "./models";
 import "./root.css";
 import { WifiQrCode } from "./wifi-qr";
 
