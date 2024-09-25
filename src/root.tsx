@@ -6,7 +6,7 @@ import { WifiQrCode } from "./wifi-qr";
 export const Root = () => {
   const { register, handleSubmit, formState, watch } = useForm<WifiDetails>();
   // eslint-disable-next-line no-console
-  const onSubmit = (data: any) => console.log(data);
+  const onSubmit = (data: unknown) => console.log(data);
 
   const [ssid, password, authType, hidden] = watch(["ssid", "password", "authType", "hidden"]);
 
