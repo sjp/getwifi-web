@@ -26,21 +26,21 @@ const generateQrCode = (input: WifiDetails): string => {
 };
 
 export interface WifiQrCodeProps {
-  wifi: WifiDetails;
+  readonly wifi: WifiDetails;
 }
 
-export const WifiQrCode = ({ wifi }: Readonly<WifiQrCodeProps>) => {
+export const WifiQrCode = ({ wifi }: WifiQrCodeProps) => {
   const qrCode = generateQrCode(wifi);
 
   return (
-    <>
-      <QRCodeSVG value={qrCode} level="H" includeMargin={true} />
-      <pre>
-        ssid: {wifi.ssid}
-        \n password: {wifi.password}
-        \n encryption: {wifi.authType || "none"}
-        \n hidden: {(!!wifi.hidden).toString()}
-      </pre>
-    </>
+    <QRCodeSVG
+      value={qrCode}
+      level="H"
+      includeMargin={true}
+      width="100%"
+      height="100%"
+      class="wifiqr"
+      bgColor="lightgrey"
+    />
   );
 };

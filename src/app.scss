@@ -1,0 +1,12 @@
+@use "@picocss/pico/scss/pico" with (
+  $semantic-root-element: "#app",
+  $enable-semantic-container: true
+);
+
+@use "@picocss/pico/scss/colors" as *;
+
+@media only screen and (prefers-color-scheme: dark) {
+  svg.wifiqr:first-child() {
+    fill: $grey-200 !important;
+  }
+}
