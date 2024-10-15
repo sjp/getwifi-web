@@ -8,7 +8,8 @@
         "dev": "vite",
         "build": "tsc && vite build",
         "preview": "vite preview",
-        "lint": "npx @biomejs/biome lint --error-on-warnings ./src"
+        "lint": "npx @biomejs/biome lint --error-on-warnings ./src",
+        "typesafe-i18n": "typesafe-i18n"
     },
     "dependencies": {
         "@picocss/pico": "^2.0.6",
@@ -17,7 +18,8 @@
         "preact": "^10.24.2",
         "qrcode.react": "^4.0.1",
         "react": "npm:@preact/compat@^18.3.1",
-        "react-dom": "npm:@preact/compat@^18.3.1"
+        "react-dom": "npm:@preact/compat@^18.3.1",
+        "typesafe-i18n": "^5.26.2"
     },
     "devDependencies": {
         "@biomejs/biome": "^1.9.3",

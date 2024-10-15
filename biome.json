@@ -35,6 +35,7 @@
   "overrides": [
     {
       "include": ["*.ts", "*.tsx"],
+      "ignore": ["src/i18n"],
       "linter": {
         "rules": { "correctness": { "noUndeclaredVariables": "off" } }
       }
