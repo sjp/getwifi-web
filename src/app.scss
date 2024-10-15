@@ -35,7 +35,7 @@
     // Components
     "components/accordion": false,
     "components/card": true,
-    "components/dropdown": false,
+    "components/dropdown": true,
     "components/group": false,
     "components/loading": false,
     "components/modal": false,
@@ -63,4 +63,25 @@
 
 .qr-operations > button {
   flex: 1;
+}
+
+.lang-select {
+  border: none;
+}
+
+.theme-toggle svg {
+  vertical-align: -0.125em;
+}
+
+.theme-toggle:focus {
+  box-shadow: none;
+}
+
+// avoid arrow appearing for styling
+details summary::marker {
+  display: none;
+}
+
+details summary {
+  list-style: none;
 }

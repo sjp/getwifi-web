@@ -11,6 +11,7 @@ export const GlobeIcon = () => {
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
+      style="vertical-align: -0.2em; margin-right: 0.25em"
     >
       <circle cx="12" cy="12" r="10" />
       <line x1="2" y1="12" x2="22" y2="12" />
