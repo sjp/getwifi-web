@@ -8,6 +8,8 @@ import { DownloadWifiQrCodePng } from "./download-wifi-qr-png";
 import { WifiQrCodeSvg } from "./wifi-qr-svg";
 import { DownloadIcon } from "./download-icon";
 import { PrinterIcon } from "./printer-icon";
+import { Header } from "./header";
+import { Footer } from "./footer";
 
 export const Root = () => {
   const ssid = useSignal("");
@@ -30,57 +32,58 @@ export const Root = () => {
 
   return (
     <>
-      <header>
-        <h1>Get WiFi in seconds!</h1>
-      </header>
+      <Header />
       <main class="container">
+        <h1>Get WiFi in seconds!</h1>
         <div class="grid">
-          <form>
-            <fieldset>
-              <label>
-                SSID / Network ID
-                <input
-                  type="text"
-                  onInput={(evt) => {
-                    ssid.value = evt.currentTarget.value;
-                  }}
-                />
-              </label>
-              <label>
-                Password
-                <input
-                  type="password"
-                  onInput={(evt) => {
-                    password.value = evt.currentTarget.value;
-                  }}
-                />
-              </label>
-              <label>
-                Encryption
-                <select
-                  onInput={(evt) => {
-                    authType.value = evt.currentTarget.value as WifiAuthType;
-                  }}
-                >
-                  <option value="wpa">WPA / WPA2 / WPA3</option>
-                  <option value="none">None</option>
-                  <option value="wep">WEP</option>
-                </select>
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  onChange={() => {
-                    hidden.value = !hidden.value;
-                  }}
-                />
-                Hidden
-              </label>
-            </fieldset>
-          </form>
           <div>
+            <form>
+              <fieldset>
+                <label>
+                  SSID / Network ID
+                  <input
+                    type="text"
+                    onInput={(evt) => {
+                      ssid.value = evt.currentTarget.value;
+                    }}
+                  />
+                </label>
+                <label>
+                  Password
+                  <input
+                    type="password"
+                    onInput={(evt) => {
+                      password.value = evt.currentTarget.value;
+                    }}
+                  />
+                </label>
+                <label>
+                  Encryption
+                  <select
+                    onInput={(evt) => {
+                      authType.value = evt.currentTarget.value as WifiAuthType;
+                    }}
+                  >
+                    <option value="wpa">WPA / WPA2 / WPA3</option>
+                    <option value="none">None</option>
+                    <option value="wep">WEP</option>
+                  </select>
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    onChange={() => {
+                      hidden.value = !hidden.value;
+                    }}
+                  />
+                  Hidden
+                </label>
+              </fieldset>
+            </form>
+          </div>
+          <div class="qr-column">
             <WifiQrCodeSvg wifi={qrparams.value} ref={svgRef} />
-            <div class="grid">
+            <div class="qr-operations">
               <button
                 class="outline secondary"
                 type="button"
@@ -110,7 +113,7 @@ export const Root = () => {
           </div>
         </div>
       </main>
-      <footer>Made by me &copy; {new Date().getFullYear()}</footer>
+      <Footer />
       {shouldDownloadPng.value ? (
         <DownloadWifiQrCodePng
           wifi={qrparams.value}

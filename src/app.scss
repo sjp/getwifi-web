@@ -48,3 +48,19 @@
     "utilities/reduce-motion": false,
   )
 );
+
+.qr-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pico-grid-row-gap);
+}
+
+.qr-operations {
+  display: flex;
+  justify-content: space-evenly;
+  gap: var(--pico-grid-column-gap);
+}
+
+.qr-operations > button {
+  flex: 1;
+}
