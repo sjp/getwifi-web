@@ -47,6 +47,28 @@ const LanguageSelector = () => {
         <LanguageRow name="Deutsch" onSelected={() => setLocale("de")} />
         <LanguageRow name="简体中文" onSelected={() => setLocale("zh-CN")} />
         <LanguageRow name="繁體中文" onSelected={() => setLocale("zh-TW")} />
+        <LanguageRow name="हिन्दी" onSelected={() => setLocale("hi")} />
+        <LanguageRow name="Español" onSelected={() => setLocale("es")} />
+        <LanguageRow name="Français" onSelected={() => setLocale("fr")} />
+        <LanguageRow name="العربية" onSelected={() => setLocale("ar")} />
+        <LanguageRow name="বাংলা" onSelected={() => setLocale("bn")} />
+        <LanguageRow name="Русский" onSelected={() => setLocale("ru")} />
+        <LanguageRow name="Português" onSelected={() => setLocale("pt")} />
+        <LanguageRow
+          name="Bahasa Indonesia"
+          onSelected={() => setLocale("id")}
+        />
+        <LanguageRow name="اردو" onSelected={() => setLocale("ur")} />
+        <LanguageRow name="日本語" onSelected={() => setLocale("ja")} />
+        <LanguageRow name="Deutsch" onSelected={() => setLocale("de")} />
+        <LanguageRow name="Kiswahili" onSelected={() => setLocale("sw")} />
+        <LanguageRow name="मराठी" onSelected={() => setLocale("mr")} />
+        <LanguageRow name="తెలుగు" onSelected={() => setLocale("te")} />
+        <LanguageRow name="Türkçe" onSelected={() => setLocale("tr")} />
+        <LanguageRow name="தமிழ்" onSelected={() => setLocale("ta")} />
+        <LanguageRow name="Tiếng Việt" onSelected={() => setLocale("vi")} />
+        <LanguageRow name="한국어" onSelected={() => setLocale("ko")} />
+        <LanguageRow name="Italiano" onSelected={() => setLocale("it")} />
       </ul>
     </details>
   );

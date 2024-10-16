@@ -6,8 +6,26 @@ import type { Locales, Translations } from './i18n-types.js'
 import { loadedFormatters, loadedLocales, locales } from './i18n-util.js'
 
 const localeTranslationLoaders = {
+	ar: () => import('./ar/index.js'),
+	bn: () => import('./bn/index.js'),
 	de: () => import('./de/index.js'),
 	en: () => import('./en/index.js'),
+	es: () => import('./es/index.js'),
+	fr: () => import('./fr/index.js'),
+	hi: () => import('./hi/index.js'),
+	id: () => import('./id/index.js'),
+	it: () => import('./it/index.js'),
+	ja: () => import('./ja/index.js'),
+	ko: () => import('./ko/index.js'),
+	mr: () => import('./mr/index.js'),
+	pt: () => import('./pt/index.js'),
+	ru: () => import('./ru/index.js'),
+	sw: () => import('./sw/index.js'),
+	ta: () => import('./ta/index.js'),
+	te: () => import('./te/index.js'),
+	tr: () => import('./tr/index.js'),
+	ur: () => import('./ur/index.js'),
+	vi: () => import('./vi/index.js'),
 	'zh-CN': () => import('./zh-CN/index.js'),
 	'zh-TW': () => import('./zh-TW/index.js'),
 }

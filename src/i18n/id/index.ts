@@ -1,7 +1,7 @@
 import type { Translation } from "../i18n-types.js";
 
 const id = {
-  lang: "Deutsch",
+  lang: "Bahasa Indonesia",
   ssid: "SSID / ID Jaringan",
   password: "Kata sandi",
   encryption: "Enkripsi",
