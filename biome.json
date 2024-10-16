@@ -32,13 +32,8 @@
       "attributePosition": "auto"
     }
   },
-  "overrides": [
-    {
-      "include": ["*.ts", "*.tsx"],
-      "ignore": ["src/i18n"],
-      "linter": {
-        "rules": { "correctness": { "noUndeclaredVariables": "off" } }
-      }
-    }
-  ]
+  "files": {
+    "include": ["*.ts", "*.tsx"],
+    "ignore": ["src/i18n"]
+  }
 }

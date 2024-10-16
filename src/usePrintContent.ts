@@ -37,6 +37,7 @@ const appendPrintIframe = (
   documentTitle?: string
 ) => {
   printFrame.onload = () => {
+    // biome-ignore lint/complexity/noExcessiveCognitiveComplexity: largely borrowed from react print
     setTimeout(() => {
       if (printFrame.contentWindow) {
         printFrame.contentWindow.focus();
