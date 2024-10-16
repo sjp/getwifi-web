@@ -44,7 +44,6 @@ const LanguageSelector = () => {
       </summary>
       <ul>
         <LanguageRow name="English" onSelected={() => setLocale("en")} />
-        <LanguageRow name="Deutsch" onSelected={() => setLocale("de")} />
         <LanguageRow name="简体中文" onSelected={() => setLocale("zh-CN")} />
         <LanguageRow name="繁體中文" onSelected={() => setLocale("zh-TW")} />
         <LanguageRow name="हिन्दी" onSelected={() => setLocale("hi")} />
@@ -85,21 +84,25 @@ export const Header = () => {
   );
 
   return (
-    <>
-      <header>
-        <div
-          class="container"
-          style={{ display: "flex", justifyContent: "flex-end" }}
-        >
-          <Classic
-            toggled={isToggled}
-            // biome-ignore lint/suspicious/noReactSpecificProps: <explanation>
-            className="outline secondary"
-            onToggle={toggleTheme}
-          />
-          <LanguageSelector />
-        </div>
-      </header>
-    </>
+    <header>
+      <div
+        class="container"
+        style={{ display: "flex", justifyContent: "flex-start" }}
+      >
+        getwifi.link
+      </div>
+      <div
+        class="container"
+        style={{ display: "flex", justifyContent: "flex-end" }}
+      >
+        <Classic
+          toggled={isToggled}
+          // biome-ignore lint/suspicious/noReactSpecificProps: for compat with react, this must be className, even though preact supports class
+          className="outline secondary"
+          onToggle={toggleTheme}
+        />
+        <LanguageSelector />
+      </div>
+    </header>
   );
 };

@@ -10,6 +10,7 @@ import { DownloadIcon } from "./download-icon";
 import { PrinterIcon } from "./printer-icon";
 import { Header } from "./header";
 import { Footer } from "./footer";
+import { useI18nContext } from "./i18n/i18n-react";
 
 export const Root = () => {
   const ssid = useSignal("");
@@ -27,21 +28,28 @@ export const Root = () => {
   const svgRef = useRef<SVGSVGElement | null>(null);
   const print = usePrintContent({
     contentRef: svgRef,
-    documentTitle: "WiFi QR TEST",
+    documentTitle: `WiFi - ${ssid}`,
   });
-
+  const { LL } = useI18nContext();
+  
   return (
     <>
       <Header />
       <main class="container">
-        <h1>Get WiFi in seconds!</h1>
+        <h1>Create WiFi QR codes in seconds!</h1>
+        <p>
+          Sharing WiFi credentials with a QR code makes it easy for your guests
+          to connect to your WiFi network without entering a long and
+          complicated password.
+        </p>
         <div class="grid">
           <div>
             <form>
               <fieldset>
                 <label>
-                  SSID / Network ID
+                  {LL.ssid()}
                   <input
+                    autofocus={true}
                     type="text"
                     onInput={(evt) => {
                       ssid.value = evt.currentTarget.value;
@@ -49,7 +57,7 @@ export const Root = () => {
                   />
                 </label>
                 <label>
-                  Password
+                  {LL.password()}
                   <input
                     type="password"
                     onInput={(evt) => {
@@ -58,7 +66,7 @@ export const Root = () => {
                   />
                 </label>
                 <label>
-                  Encryption
+                  {LL.encryption()}
                   <select
                     onInput={(evt) => {
                       authType.value = evt.currentTarget.value as WifiAuthType;
@@ -76,7 +84,7 @@ export const Root = () => {
                       hidden.value = !hidden.value;
                     }}
                   />
-                  Hidden
+                  {LL.hidden()}
                 </label>
               </fieldset>
             </form>
@@ -107,7 +115,7 @@ export const Root = () => {
                   print();
                 }}
               >
-                <PrinterIcon /> Print
+                <PrinterIcon /> {LL.print()}
               </button>
             </div>
           </div>

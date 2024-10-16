@@ -2,12 +2,12 @@ import "./root.css";
 
 export const Footer = () => {
   return (
-    <>
-      <footer>
-        <div class="container">
-          Made by me &copy; {new Date().getFullYear()}
-        </div>
-      </footer>
-    </>
+    <footer>
+      Made by{" "}
+      <a href="https://sjp.co.nz" target="_blank" rel="noreferrer noopener">
+        sjp
+      </a>{" "}
+      &copy;{new Date().getFullYear()}
+    </footer>
   );
 };
