@@ -70,7 +70,13 @@ footer {
 }
 
 .lang-select {
+  width: auto;
   border: none;
+}
+
+button.theme-toggle {
+  color: var(--pico-form-element-color);
+  background-color: var(--pico-form-element-background-color);
 }
 
 .theme-toggle svg {
@@ -79,13 +85,4 @@ footer {
 
 .theme-toggle:focus {
   box-shadow: none;
-}
-
-// avoid arrow appearing for styling
-details summary::marker {
-  display: none;
-}
-
-details summary {
-  list-style: none;
 }

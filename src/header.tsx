@@ -1,75 +1,54 @@
 import { Classic } from "@theme-toggles/react";
 import "./root.css";
-import { GlobeIcon } from "./globe-icon";
 import { useI18nContext } from "./i18n/i18n-react";
-import type { KeyboardEvent } from "preact/compat";
+import type { ChangeEvent } from "preact/compat";
 import { useCallback } from "preact/hooks";
 import { useTheme } from "./use-theme";
+import type { Locales } from "./i18n/i18n-types";
 
-interface LanguageRowProps {
+interface LanguageOptionProps {
   name: string;
-  onSelected: () => void;
+  locale: Locales;
 }
 
-const LanguageRow = ({ name, onSelected }: LanguageRowProps) => {
-  const handleEnter = (evt: KeyboardEvent<HTMLLIElement>) => {
-    if (evt.key !== "Enter") {
-      return;
-    }
-
-    onSelected();
-  };
-
-  return (
-    <li
-      onKeyDown={handleEnter}
-      onClick={() => {
-        onSelected();
-      }}
-    >
-      {name}
-    </li>
-  );
+const LanguageOption = ({ name, locale }: LanguageOptionProps) => {
+  return <option value={locale}>{name}</option>;
 };
 
 const LanguageSelector = () => {
-  const { LL, setLocale } = useI18nContext();
+  const { setLocale } = useI18nContext();
 
   return (
-    <details class="dropdown">
-      {/* biome-ignore lint/a11y/useSemanticElements: <explanation> */}
-      <summary role="button" class="lang-select outline secondary">
-        <GlobeIcon />
-        {LL.lang()}
-      </summary>
-      <ul>
-        <LanguageRow name="English" onSelected={() => setLocale("en")} />
-        <LanguageRow name="简体中文" onSelected={() => setLocale("zh-CN")} />
-        <LanguageRow name="繁體中文" onSelected={() => setLocale("zh-TW")} />
-        <LanguageRow name="हिन्दी" onSelected={() => setLocale("hi")} />
-        <LanguageRow name="Español" onSelected={() => setLocale("es")} />
-        <LanguageRow name="Français" onSelected={() => setLocale("fr")} />
-        <LanguageRow name="العربية" onSelected={() => setLocale("ar")} />
-        <LanguageRow name="বাংলা" onSelected={() => setLocale("bn")} />
-        <LanguageRow name="Русский" onSelected={() => setLocale("ru")} />
-        <LanguageRow name="Português" onSelected={() => setLocale("pt")} />
-        <LanguageRow
-          name="Bahasa Indonesia"
-          onSelected={() => setLocale("id")}
-        />
-        <LanguageRow name="اردو" onSelected={() => setLocale("ur")} />
-        <LanguageRow name="日本語" onSelected={() => setLocale("ja")} />
-        <LanguageRow name="Deutsch" onSelected={() => setLocale("de")} />
-        <LanguageRow name="Kiswahili" onSelected={() => setLocale("sw")} />
-        <LanguageRow name="मराठी" onSelected={() => setLocale("mr")} />
-        <LanguageRow name="తెలుగు" onSelected={() => setLocale("te")} />
-        <LanguageRow name="Türkçe" onSelected={() => setLocale("tr")} />
-        <LanguageRow name="தமிழ்" onSelected={() => setLocale("ta")} />
-        <LanguageRow name="Tiếng Việt" onSelected={() => setLocale("vi")} />
-        <LanguageRow name="한국어" onSelected={() => setLocale("ko")} />
-        <LanguageRow name="Italiano" onSelected={() => setLocale("it")} />
-      </ul>
-    </details>
+    <select
+      class="lang-select"
+      onChange={(evt: ChangeEvent<HTMLSelectElement>) => {
+        const lcl = evt.currentTarget.value as Locales;
+        setLocale(lcl);
+      }}
+    >
+      <LanguageOption name="English" locale="en" />
+      <LanguageOption name="简体中文" locale="zh-CN" />
+      <LanguageOption name="繁體中文" locale="zh-TW" />
+      <LanguageOption name="हिन्दी" locale="hi" />
+      <LanguageOption name="Español" locale="es" />
+      <LanguageOption name="Français" locale="fr" />
+      <LanguageOption name="العربية" locale="ar" />
+      <LanguageOption name="বাংলা" locale="bn" />
+      <LanguageOption name="Русский" locale="ru" />
+      <LanguageOption name="Português" locale="pt" />
+      <LanguageOption name="Bahasa Indonesia" locale="id" />
+      <LanguageOption name="اردو" locale="ur" />
+      <LanguageOption name="日本語" locale="ja" />
+      <LanguageOption name="Deutsch" locale="de" />
+      <LanguageOption name="Kiswahili" locale="sw" />
+      <LanguageOption name="मराठी" locale="mr" />
+      <LanguageOption name="తెలుగు" locale="te" />
+      <LanguageOption name="Türkçe" locale="tr" />
+      <LanguageOption name="தமிழ்" locale="ta" />
+      <LanguageOption name="Tiếng Việt" locale="vi" />
+      <LanguageOption name="한국어" locale="ko" />
+      <LanguageOption name="Italiano" locale="it" />
+    </select>
   );
 };
 
@@ -93,12 +72,12 @@ export const Header = () => {
       </div>
       <div
         class="container"
-        style={{ display: "flex", justifyContent: "flex-end" }}
+        style={{ display: "flex", justifyContent: "flex-end", gap: "var(--pico-spacing)" }}
       >
         <Classic
           toggled={isToggled}
           // biome-ignore lint/suspicious/noReactSpecificProps: for compat with react, this must be className, even though preact supports class
-          className="outline secondary"
+          className="secondary"
           onToggle={toggleTheme}
         />
         <LanguageSelector />
