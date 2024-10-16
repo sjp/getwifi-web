@@ -2,8 +2,9 @@ import { Classic } from "@theme-toggles/react";
 import "./root.css";
 import { GlobeIcon } from "./globe-icon";
 import { useI18nContext } from "./i18n/i18n-react";
-import type { Locales } from "./i18n/i18n-types";
 import type { KeyboardEvent } from "preact/compat";
+import { useCallback } from "preact/hooks";
+import { useTheme } from "./use-theme";
 
 interface LanguageRowProps {
   name: string;
@@ -32,9 +33,7 @@ const LanguageRow = ({ name, onSelected }: LanguageRowProps) => {
 };
 
 const LanguageSelector = () => {
-  const { LL, locale, setLocale } = useI18nContext();
-
-  console.log({ lang: LL.lang(), ssid: LL.ssid(), locale });
+  const { LL, setLocale } = useI18nContext();
 
   return (
     <details class="dropdown">
@@ -54,6 +53,15 @@ const LanguageSelector = () => {
 };
 
 export const Header = () => {
+  const { theme, setTheme } = useTheme();
+  const isToggled = theme === "dark";
+  const toggleTheme = useCallback(
+    (toggled: boolean) => {
+      setTheme(toggled ? "dark" : "light");
+    },
+    [setTheme]
+  );
+
   return (
     <>
       <header>
@@ -62,12 +70,10 @@ export const Header = () => {
           style={{ display: "flex", justifyContent: "flex-end" }}
         >
           <Classic
+            toggled={isToggled}
+            // biome-ignore lint/suspicious/noReactSpecificProps: <explanation>
             className="outline secondary"
-            onToggle={(toggled: boolean) => {
-              // biome-ignore lint/suspicious/noConsole: <explanation>
-              // biome-ignore lint/suspicious/noConsoleLog: <explanation>
-              console.log(toggled);
-            }}
+            onToggle={toggleTheme}
           />
           <LanguageSelector />
         </div>
