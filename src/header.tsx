@@ -66,14 +66,9 @@ export const Header = () => {
     <header>
       <div
         class="container"
-        style={{ display: "flex", justifyContent: "flex-start" }}
-      >
-        getwifi.link
-      </div>
-      <div
-        class="container"
         style={{ display: "flex", justifyContent: "flex-end", gap: "var(--pico-spacing)" }}
       >
+        <a href="https://getwifi.link">getwifi.link</a>
         <Classic
           toggled={isToggled}
           // biome-ignore lint/suspicious/noReactSpecificProps: for compat with react, this must be className, even though preact supports class

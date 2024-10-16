@@ -31,7 +31,7 @@ export const Root = () => {
     documentTitle: `WiFi - ${ssid}`,
   });
   const { LL } = useI18nContext();
-  
+
   return (
     <>
       <Header />
@@ -44,11 +44,12 @@ export const Root = () => {
         </p>
         <div class="grid">
           <div>
-            <form>
+            <form autocomplete="off">
               <fieldset>
                 <label>
                   {LL.ssid()}
                   <input
+                    name="ssid"
                     autofocus={true}
                     type="text"
                     onInput={(evt) => {
@@ -59,6 +60,7 @@ export const Root = () => {
                 <label>
                   {LL.password()}
                   <input
+                    name="password"
                     type="password"
                     onInput={(evt) => {
                       password.value = evt.currentTarget.value;
@@ -68,6 +70,7 @@ export const Root = () => {
                 <label>
                   {LL.encryption()}
                   <select
+                    name="encryption"
                     onInput={(evt) => {
                       authType.value = evt.currentTarget.value as WifiAuthType;
                     }}
@@ -79,6 +82,7 @@ export const Root = () => {
                 </label>
                 <label>
                   <input
+                    name="hidden"
                     type="checkbox"
                     onChange={() => {
                       hidden.value = !hidden.value;
