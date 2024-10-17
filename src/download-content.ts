@@ -1,4 +1,4 @@
-import { getSvgElement } from "./getSvgElement";
+import { getSvgElement } from "./get-element";
 
 const downloadContent = (url: string, fileName: string) => {
   const downloadLink = document.createElement("a");

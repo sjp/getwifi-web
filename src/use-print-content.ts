@@ -1,6 +1,6 @@
 import type { RefObject } from "preact";
 import { useCallback } from "preact/hooks";
-import { getSvgElement } from "./getSvgElement";
+import { getSvgElement } from "./get-element";
 
 export interface UsePrintContentOptions {
   contentRef?: RefObject<SVGSVGElement | null>;
