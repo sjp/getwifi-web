@@ -1,4 +1,4 @@
-import type { WifiDetails } from "./models";
+import type { WifiDetails } from "./wifi";
 
 const escapeInput = (input: string): string => {
   if (!input) {

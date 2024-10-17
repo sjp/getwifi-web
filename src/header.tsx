@@ -3,7 +3,7 @@ import "./root.css";
 import { useI18nContext } from "./i18n/i18n-react";
 import type { ChangeEvent } from "preact/compat";
 import { useCallback, useLayoutEffect } from "preact/hooks";
-import { useTheme } from "./use-theme";
+import { useTheme } from "./hooks/use-theme";
 import type { Locales } from "./i18n/i18n-types";
 
 const useDocumentTitle = (title: string): void => {

@@ -1,13 +1,13 @@
 import { useComputed, useSignal } from "@preact/signals";
 import "./root.css";
-import type { WifiAuthType, WifiDetails } from "./models";
+import type { WifiAuthType, WifiDetails } from "./wifi";
 import { useRef } from "preact/hooks";
-import { usePrintContent } from "./use-print-content";
+import { usePrintContent } from "./hooks/use-print-content";
 import { downloadSvg } from "./download-content";
 import { DownloadWifiQrCodePng } from "./download-wifi-qr-png";
 import { WifiQrCodeSvg } from "./wifi-qr-svg";
-import { DownloadIcon } from "./download-icon";
-import { PrinterIcon } from "./printer-icon";
+import { DownloadIcon } from "./icons/download-icon";
+import { PrinterIcon } from "./icons/printer-icon";
 import { Header } from "./header";
 import { Footer } from "./footer";
 import { useI18nContext } from "./i18n/i18n-react";

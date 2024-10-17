@@ -1,5 +1,5 @@
 import { QRCodeSVG } from "qrcode.react";
-import type { WifiDetails } from "./models";
+import type { WifiDetails } from "./wifi";
 import { generateQrCode } from "./qrcode";
 import type { RefAttributes } from "preact/compat";
 

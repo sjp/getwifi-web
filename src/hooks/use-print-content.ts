@@ -1,6 +1,6 @@
 import type { RefObject } from "preact";
 import { useCallback } from "preact/hooks";
-import { getSvgElement } from "./get-element";
+import { getElement } from "../get-element";
 
 export interface UsePrintContentOptions {
   contentRef?: RefObject<SVGSVGElement | null>;
@@ -87,7 +87,7 @@ export const usePrintContent = ({
     // Ensure we remove any pre-existing print windows before adding a new one
     removePrintIframe();
 
-    const contentNode = getSvgElement(contentRef?.current || null);
+    const contentNode = getElement(contentRef?.current || null);
     if (!contentNode) {
       return;
     }

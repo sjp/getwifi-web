@@ -1,4 +1,4 @@
-import { getSvgElement } from "./get-element";
+import { getElement } from "./get-element";
 
 const downloadContent = (url: string, fileName: string) => {
   const downloadLink = document.createElement("a");
@@ -10,7 +10,7 @@ const downloadContent = (url: string, fileName: string) => {
 };
 
 export const downloadSvg = (svg: SVGSVGElement | null) => {
-  const svgNode = getSvgElement(svg);
+  const svgNode = getElement(svg);
   if (!svgNode) {
     return;
   }
