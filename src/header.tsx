@@ -66,16 +66,30 @@ export const Header = () => {
     <header>
       <div
         class="container"
-        style={{ display: "flex", justifyContent: "flex-end", gap: "var(--pico-spacing)" }}
+        style={{
+          display: "flex",
+          alignItems: "center",
+        }}
       >
-        <a href="https://getwifi.link">getwifi.link</a>
-        <Classic
-          toggled={isToggled}
-          // biome-ignore lint/suspicious/noReactSpecificProps: for compat with react, this must be className, even though preact supports class
-          className="secondary"
-          onToggle={toggleTheme}
-        />
-        <LanguageSelector />
+        <strong style={{ marginBottom: "var(--pico-spacing)" }}>
+          getwifi.link
+        </strong>
+        <div
+          class="container"
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            gap: "var(--pico-spacing)",
+          }}
+        >
+          <Classic
+            toggled={isToggled}
+            // biome-ignore lint/suspicious/noReactSpecificProps: for compat with react, this must be className, even though preact supports class
+            className="secondary"
+            onToggle={toggleTheme}
+          />
+          <LanguageSelector />
+        </div>
       </div>
     </header>
   );
