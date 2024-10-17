@@ -39,15 +39,9 @@ export const Root = () => {
         <section>
           <article>
             <header>
-              <h1 style={{ textAlign: "center" }}>
-                Create WiFi QR codes in seconds!
-              </h1>
+              <h1 style={{ textAlign: "center" }}>{LL.ctaHeader()}</h1>
             </header>
-            <p>
-              Sharing WiFi credentials with a QR code makes it easy for your
-              guests to connect to your WiFi network without entering a long and
-              complicated password.
-            </p>
+            <p>{LL.ctaDescription()}</p>
           </article>
         </section>
         <section>

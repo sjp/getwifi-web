@@ -2,9 +2,15 @@ import { Classic } from "@theme-toggles/react";
 import "./root.css";
 import { useI18nContext } from "./i18n/i18n-react";
 import type { ChangeEvent } from "preact/compat";
-import { useCallback } from "preact/hooks";
+import { useCallback, useLayoutEffect } from "preact/hooks";
 import { useTheme } from "./use-theme";
 import type { Locales } from "./i18n/i18n-types";
+
+const useDocumentTitle = (title: string): void => {
+  useLayoutEffect(() => {
+    window.document.title = title;
+  }, [title]);
+};
 
 interface LanguageOptionProps {
   name: string;
@@ -16,7 +22,9 @@ const LanguageOption = ({ name, locale }: LanguageOptionProps) => {
 };
 
 const LanguageSelector = () => {
-  const { setLocale } = useI18nContext();
+  const { LL, setLocale } = useI18nContext();
+  const title = `${LL.htmlTitle()} - getwifi.link`;
+  useDocumentTitle(title);
 
   return (
     <select
@@ -53,6 +61,7 @@ const LanguageSelector = () => {
 };
 
 export const Header = () => {
+  const { LL } = useI18nContext();
   const { theme, setTheme } = useTheme();
   const isToggled = theme === "dark";
   const toggleTheme = useCallback(
@@ -83,6 +92,8 @@ export const Header = () => {
           }}
         >
           <Classic
+            title={LL.themeToggle()}
+            ariaLabel={LL.themeToggle()}
             toggled={isToggled}
             // biome-ignore lint/suspicious/noReactSpecificProps: for compat with react, this must be className, even though preact supports class
             className="secondary"

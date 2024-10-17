@@ -1,14 +1,15 @@
 import { GitHubIcon } from "./github-icon";
+import { useI18nContext } from "./i18n/i18n-react";
 import "./root.css";
 
 export const Footer = () => {
+  const { LL } = useI18nContext();
+
   return (
     <footer>
-      Made by{" "}
       <a href="https://sjp.co.nz" target="_blank" rel="noreferrer noopener">
-        sjp
+        {LL.authorship({ author: "sjp" })}
       </a>{" "}
-      &copy;{new Date().getFullYear()}{" "}
       <a
         href="https://github.com/sjp/getwifi-web"
         class="secondary"
