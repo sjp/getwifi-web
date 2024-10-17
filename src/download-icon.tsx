@@ -1,8 +1,8 @@
 export const DownloadIcon = () => {
   return (
-    // biome-ignore lint/a11y/noSvgWithoutTitle: <explanation>
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      role="img"
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -13,6 +13,7 @@ export const DownloadIcon = () => {
       stroke-linejoin="round"
       style="vertical-align: -0.125em; margin-right: 0.25em"
     >
+      <title>Download</title>
       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
       <polyline points="7 10 12 15 17 10" />
       <line x1="12" y1="15" x2="12" y2="3" />

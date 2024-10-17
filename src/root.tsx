@@ -36,94 +36,105 @@ export const Root = () => {
     <>
       <Header />
       <main class="container">
-        <h1>Create WiFi QR codes in seconds!</h1>
-        <p>
-          Sharing WiFi credentials with a QR code makes it easy for your guests
-          to connect to your WiFi network without entering a long and
-          complicated password.
-        </p>
-        <div class="grid">
-          <div>
-            <form autocomplete="off">
-              <fieldset>
-                <label>
-                  {LL.ssid()}
-                  <input
-                    name="ssid"
-                    autofocus={true}
-                    type="text"
-                    onInput={(evt) => {
-                      ssid.value = evt.currentTarget.value;
-                    }}
-                  />
-                </label>
-                <label>
-                  {LL.password()}
-                  <input
-                    name="password"
-                    type="password"
-                    onInput={(evt) => {
-                      password.value = evt.currentTarget.value;
-                    }}
-                  />
-                </label>
-                <label>
-                  {LL.encryption()}
-                  <select
-                    name="encryption"
-                    onInput={(evt) => {
-                      authType.value = evt.currentTarget.value as WifiAuthType;
-                    }}
-                  >
-                    <option value="wpa">WPA / WPA2 / WPA3</option>
-                    <option value="none">None</option>
-                    <option value="wep">WEP</option>
-                  </select>
-                </label>
-                <label>
-                  <input
-                    name="hidden"
-                    type="checkbox"
-                    onChange={() => {
-                      hidden.value = !hidden.value;
-                    }}
-                  />
-                  {LL.hidden()}
-                </label>
-              </fieldset>
-            </form>
-          </div>
-          <div class="qr-column">
-            <WifiQrCodeSvg wifi={qrparams.value} ref={svgRef} />
-            <div class="qr-operations">
-              <button
-                class="outline secondary"
-                type="button"
-                onClick={() => downloadSvg(svgRef.current)}
-              >
-                <DownloadIcon /> SVG
-              </button>
-              <button
-                class="outline secondary"
-                type="button"
-                onClick={() => {
-                  shouldDownloadPng.value = true;
-                }}
-              >
-                <DownloadIcon /> PNG
-              </button>
-              <button
-                class="outline secondary"
-                type="button"
-                onClick={() => {
-                  print();
-                }}
-              >
-                <PrinterIcon /> {LL.print()}
-              </button>
+        <section>
+          <article>
+            <header>
+              <h1 style={{ textAlign: "center" }}>
+                Create WiFi QR codes in seconds!
+              </h1>
+            </header>
+            <p>
+              Sharing WiFi credentials with a QR code makes it easy for your
+              guests to connect to your WiFi network without entering a long and
+              complicated password.
+            </p>
+          </article>
+        </section>
+        <section>
+          <div class="grid">
+            <div>
+              <form autocomplete="off">
+                <fieldset>
+                  <label>
+                    {LL.ssid()}
+                    <input
+                      name="ssid"
+                      autofocus={true}
+                      type="text"
+                      onInput={(evt) => {
+                        ssid.value = evt.currentTarget.value;
+                      }}
+                    />
+                  </label>
+                  <label>
+                    {LL.password()}
+                    <input
+                      name="password"
+                      type="password"
+                      onInput={(evt) => {
+                        password.value = evt.currentTarget.value;
+                      }}
+                    />
+                  </label>
+                  <label>
+                    {LL.encryption()}
+                    <select
+                      name="encryption"
+                      onInput={(evt) => {
+                        authType.value = evt.currentTarget
+                          .value as WifiAuthType;
+                      }}
+                    >
+                      <option value="wpa">WPA / WPA2 / WPA3</option>
+                      <option value="none">None</option>
+                      <option value="wep">WEP</option>
+                    </select>
+                  </label>
+                  <label>
+                    <input
+                      name="hidden"
+                      type="checkbox"
+                      onChange={() => {
+                        hidden.value = !hidden.value;
+                      }}
+                    />
+                    {LL.hidden()}
+                  </label>
+                </fieldset>
+              </form>
+            </div>
+            <div class="qr-column">
+              <WifiQrCodeSvg wifi={qrparams.value} ref={svgRef} />
+              <div class="qr-operations">
+                <button
+                  class="outline secondary"
+                  type="button"
+                  onClick={() => downloadSvg(svgRef.current)}
+                >
+                  <DownloadIcon /> SVG
+                </button>
+                <button
+                  class="outline secondary"
+                  type="button"
+                  onClick={() => {
+                    shouldDownloadPng.value = true;
+                  }}
+                >
+                  <DownloadIcon /> PNG
+                </button>
+                <button
+                  class="outline secondary"
+                  type="button"
+                  onClick={() => {
+                    print();
+                  }}
+                >
+                  <PrinterIcon /> {LL.print()}
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
       </main>
       <Footer />
       {shouldDownloadPng.value ? (

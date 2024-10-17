@@ -1,8 +1,8 @@
 export const GlobeIcon = () => {
   return (
-    // biome-ignore lint/a11y/noSvgWithoutTitle: <explanation>
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      role="img"
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -13,6 +13,7 @@ export const GlobeIcon = () => {
       stroke-linejoin="round"
       style="vertical-align: -0.2em; margin-right: 0.25em"
     >
+      <title>Globe</title>
       <circle cx="12" cy="12" r="10" />
       <line x1="2" y1="12" x2="22" y2="12" />
       <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />

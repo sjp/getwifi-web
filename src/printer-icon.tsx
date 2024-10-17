@@ -1,8 +1,8 @@
 export const PrinterIcon = () => {
   return (
-    // biome-ignore lint/a11y/noSvgWithoutTitle: <explanation>
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      role="img"
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -13,6 +13,7 @@ export const PrinterIcon = () => {
       stroke-linejoin="round"
       style="vertical-align: -0.125em; margin-right: 0.25em"
     >
+      <title>Print</title>
       <polyline points="6 9 6 2 18 2 18 9" />
       <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
       <rect x="6" y="14" width="12" height="8" />
