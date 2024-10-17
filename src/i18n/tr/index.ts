@@ -10,7 +10,7 @@ const tr = {
   htmlTitle: "Saniyeler İçinde WiFi QR Kodları",
   ctaHeader: "Saniyeler İçinde WiFi QR Kodları Oluşturun!",
   ctaDescription: "WiFi kimlik bilgilerini bir QR kodu ile paylaşmak, misafirlerinizin uzun ve karmaşık bir şifre girmeden WiFi ağınıza bağlanmalarını kolaylaştırır.",
-  authorship: "{author:string} tarafından yapıldı",
+  authorship: "{author} tarafından yapıldı",
   themeToggle: "Temayı Değiştir"
 } satisfies Translation;
 
