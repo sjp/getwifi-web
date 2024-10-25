@@ -1,9 +1,9 @@
-import { Classic } from "@theme-toggles/react";
 import "./root.css";
 import { useI18nContext } from "./i18n/i18n-react";
 import { useCallback } from "preact/hooks";
 import { useTheme } from "./hooks/use-theme";
 import { LanguageSelector } from "./language-selector";
+import { Classic } from "./icons/dark-mode-toggle-icon";
 
 export const Header = () => {
   const { LL } = useI18nContext();
@@ -38,11 +38,11 @@ export const Header = () => {
         >
           <Classic
             title={LL.themeToggle()}
-            ariaLabel={LL.themeToggle()}
+            aria-label={LL.themeToggle()}
             toggled={isToggled}
             // biome-ignore lint/suspicious/noReactSpecificProps: for compat with react, this must be className, even though preact supports class
             className="secondary"
-            onToggle={toggleTheme}
+            onToggled={toggleTheme}
           />
           <LanguageSelector />
         </div>
