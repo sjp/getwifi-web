@@ -1,26 +1,20 @@
-import {
-  forwardRef,
-  type ReactNode,
-  type MouseEventHandler,
+import type {
+  MouseEventHandler,
+  CSSProperties,
+  PropsWithChildren,
 } from "preact/compat";
-import type { ComponentType, ComponentProps, JSX, Ref } from "preact";
+import type { ComponentProps } from "preact";
 
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-export type ReactTag = keyof JSX.IntrinsicElements | ComponentType<any>;
-
-interface CoreHtmlProps<Tag extends ReactTag> {
-  onClick?: MouseEventHandler<EventTarget>;
+interface CoreHtmlProps extends PropsWithChildren {
+  onClick?: MouseEventHandler<HTMLButtonElement>;
   className?: string;
   title?: string;
   type?: string;
-  children?: ReactNode;
   "aria-label"?: string;
 }
 
-export interface BaseToggleProps<TTag extends ReactTag>
-  extends CoreHtmlProps<TTag> {
+interface BaseToggleProps extends CoreHtmlProps {
   toggled?: boolean;
-  as?: TTag;
   onToggled?: (toggled: boolean) => void;
   duration?: number;
   reversed?: boolean;
@@ -29,37 +23,21 @@ export interface BaseToggleProps<TTag extends ReactTag>
   svgProps?: ComponentProps<"svg">;
 }
 
-export type ToggleProps<Tag extends ReactTag> = BaseToggleProps<Tag> &
-  ComponentProps<Tag>;
+type ToggleProps = BaseToggleProps;
 
-const forwardRefWithAs = <T extends { name: string; displayName?: string }>(
-  component: T
-): T & { displayName: string } => {
-  // biome-ignore lint/suspicious/noExplicitAny:
-  return Object.assign(forwardRef(component as unknown as any) as any, {
-    displayName: component.displayName ?? component.name,
-  });
-};
-
-export const Classic = forwardRefWithAs(function Classic<
-  Tag extends ReactTag = "button"
->(props: ToggleProps<Tag>, ref: Ref<Element>) {
-  const {
-    onToggled,
-    toggled,
-    duration = 500,
-    reversed = false,
-    title = "Toggle theme",
-    forceMotion = false,
-    onClick,
-    style = {},
-    idPrefix = "",
-    as: Component = "button",
-    "aria-label": ariaLabel = "Toggle theme",
-    className,
-    children,
-    ...rest
-  } = props;
+export const Classic = ({
+  onToggled,
+  toggled,
+  duration = 500,
+  reversed = false,
+  title = "Toggle theme",
+  forceMotion = false,
+  onClick,
+  idPrefix = "",
+  "aria-label": ariaLabel = "Toggle theme",
+  className,
+  children,
+}: ToggleProps) => {
   const classes = [
     "theme-toggle",
     toggled !== undefined && toggled ? "theme-toggle--toggled" : undefined,
@@ -68,24 +46,23 @@ export const Classic = forwardRefWithAs(function Classic<
     reversed ? "theme-toggle--reversed" : undefined,
     className,
   ].join(" ");
-  style["--theme-toggle__classic--duration"] = `${duration}ms`;
-  if (Component === "button" && !rest.type) {
-    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-    (rest as any).type = "button";
-  }
-  const handleClick: MouseEventHandler<EventTarget> = (e) => {
+  const style: CSSProperties = {
+    "--theme-toggle__classic--duration": `${duration}ms`,
+  };
+
+  const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     onToggled?.(!toggled);
     onClick?.(e);
   };
+
   return (
-    <Component
-      ref={ref}
+    <button
+      type="button"
       class={classes}
       aria-label={ariaLabel}
       title={title}
       onClick={handleClick}
       style={style}
-      {...rest}
     >
       {children}
       {
@@ -97,15 +74,14 @@ export const Classic = forwardRefWithAs(function Classic<
           aria-hidden="true"
           class="theme-toggle__classic"
           viewBox="0 0 24 24"
-          {...props.svgProps}
         >
-          <clipPath id={`${props.idPrefix || ""}a`}>
+          <clipPath id={`${idPrefix || ""}a`}>
             <path d="M0 0h25a1 1 0 0 0 10 10v14H0Z" />
           </clipPath>
           <g
             stroke="currentColor"
             strokeLinecap="round"
-            clipPath={`url(#${props.idPrefix || ""}a)`}
+            clipPath={`url(#${idPrefix || ""}a)`}
           >
             <circle cx={12} cy={12} r={5} />
             <path
@@ -119,6 +95,6 @@ export const Classic = forwardRefWithAs(function Classic<
           </g>
         </svg>
       }
-    </Component>
+    </button>
   );
-});
+};

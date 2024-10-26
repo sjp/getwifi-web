@@ -28,3 +28,5 @@ However for the most part this is built using the following:
 * [Biome](https://biomejs.dev/)
 
 The choice of many of these libraries was to minimise the bundle size as much as possible.
+
+Additionally the application pre-rendered for fast load.
