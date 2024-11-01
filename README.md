@@ -4,8 +4,10 @@
 
 * `npm install`: Installs dependencies
 * `npm run dev`: Run a development, HMR server
-* `npm run build`: Production-ready build.
+* `npm run build`: Production-ready build
 * `npm run preview`: Run a production-like server
+* `npm run lint`: Scans code for potential issues via linting
+* `npm run typesafe-i18n`: Generates i18n code when translations are updated
 
 ## Features
 
@@ -29,4 +31,4 @@ However for the most part this is built using the following:
 
 The choice of many of these libraries was to minimise the bundle size as much as possible.
 
-Additionally the application pre-rendered for fast load.
+Additionally the application is pre-rendered for fast initial page loads.
