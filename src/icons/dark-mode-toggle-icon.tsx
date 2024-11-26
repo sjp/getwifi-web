@@ -6,7 +6,6 @@ import type {
 import type { ComponentProps } from "preact";
 
 interface CoreHtmlProps extends PropsWithChildren {
-  onClick?: MouseEventHandler<HTMLButtonElement>;
   className?: string;
   title?: string;
   type?: string;
@@ -32,7 +31,6 @@ export const Classic = ({
   reversed = false,
   title = "Toggle theme",
   forceMotion = false,
-  onClick,
   idPrefix = "",
   "aria-label": ariaLabel = "Toggle theme",
   className,
@@ -52,7 +50,6 @@ export const Classic = ({
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     onToggled?.(!toggled);
-    onClick?.(e);
   };
 
   return (
