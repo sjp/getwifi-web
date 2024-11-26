@@ -1,8 +1,4 @@
-import type {
-  MouseEventHandler,
-  CSSProperties,
-  PropsWithChildren,
-} from "preact/compat";
+import type { CSSProperties, PropsWithChildren } from "preact/compat";
 import type { ComponentProps } from "preact";
 
 interface CoreHtmlProps extends PropsWithChildren {
@@ -48,7 +44,7 @@ export const Classic = ({
     "--theme-toggle__classic--duration": `${duration}ms`,
   };
 
-  const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
+  const handleClick = () => {
     onToggled?.(!toggled);
   };
 
