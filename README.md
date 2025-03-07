@@ -12,7 +12,7 @@
 ## Features
 
 * Dark mode
-* Translations available for over 20 over the most common languages
+* Translations available for 20 of the most common languages
 * Downloading to SVG or PNG
 * One-click printing for the QR code
 
