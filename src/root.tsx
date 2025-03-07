@@ -1,5 +1,4 @@
 import { useComputed, useSignal } from "@preact/signals";
-import "./root.css";
 import type { WifiAuthType, WifiDetails } from "./wifi";
 import { useRef } from "preact/hooks";
 import { usePrintContent } from "./hooks/use-print-content";

@@ -1,6 +1,5 @@
 import { GitHubIcon } from "./icons/github-icon";
 import { useI18nContext } from "./i18n/i18n-react";
-import "./root.css";
 
 export const Footer = () => {
   const { LL } = useI18nContext();
