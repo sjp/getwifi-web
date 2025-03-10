@@ -2,12 +2,17 @@ import { QRCodeSVG } from "qrcode.react";
 import type { WifiDetails } from "./wifi";
 import { generateQrCode } from "./qrcode";
 import type { RefAttributes } from "preact/compat";
+import { EmptyQrSvg } from "./empty-qr-svg";
 
 export interface WifiQrCodeSvgProps extends RefAttributes<SVGSVGElement> {
   readonly wifi: WifiDetails;
 }
 
 export const WifiQrCodeSvg = ({ wifi, ref }: WifiQrCodeSvgProps) => {
+  if (!wifi.ssid) {
+    return <EmptyQrSvg />;
+  }
+
   const qrCode = generateQrCode(wifi);
 
   return (
