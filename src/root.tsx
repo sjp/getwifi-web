@@ -36,14 +36,6 @@ export const Root = () => {
       <Header />
       <main class="container">
         <section>
-          <article>
-            <header>
-              <h1 style={{ textAlign: "center" }}>{LL.ctaHeader()}</h1>
-            </header>
-            <p>{LL.ctaDescription()}</p>
-          </article>
-        </section>
-        <section>
           <div class="grid">
             <div>
               <form autocomplete="off">
