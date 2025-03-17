@@ -11,12 +11,4 @@ export default defineConfig({
         renderTarget: "#app",
       }
     })],
-  css: {
-    preprocessorOptions: {
-      scss: {
-        api: "modern-compiler",
-        quietDeps: true,
-      },
-    },
-  },
 });
