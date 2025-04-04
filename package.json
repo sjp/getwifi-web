@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@picocss/pico": "^2.1.1",
-    "@preact/signals": "^2.0.2",
+    "@preact/signals": "^2.0.3",
     "@theme-toggles/react": "^4.1.0",
     "preact": "^10.26.4",
     "preact-iso": "^2.9.1",
