@@ -39,7 +39,6 @@ export const Header = () => {
             title={LL.themeToggle()}
             aria-label={LL.themeToggle()}
             toggled={isToggled}
-            // biome-ignore lint/suspicious/noReactSpecificProps: for compat with react, this must be className, even though preact supports class
             className="secondary"
             onToggled={toggleTheme}
           />
