@@ -31,5 +31,4 @@ export const downloadPng = (canvas: HTMLCanvasElement | null) => {
 
   const pngUrl = canvas.toDataURL("image/png");
   downloadContent(pngUrl, "wifi-qrcode.png");
-  URL.revokeObjectURL(pngUrl);
 };
