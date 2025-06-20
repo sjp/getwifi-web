@@ -27,7 +27,7 @@ export const DownloadWifiQrCodePng = ({
 
     downloadPng(canvasElement);
     onDownloaded();
-  }, [onDownloaded]);
+  }, []);
 
   return (
     <div style={{ display: "none" }}>
