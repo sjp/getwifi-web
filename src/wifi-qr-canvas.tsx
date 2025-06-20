@@ -1,14 +1,16 @@
 import { QRCodeCanvas } from "qrcode.react";
 import type { WifiDetails } from "./wifi";
-import type { RefAttributes } from "preact/compat";
+import { forwardRef } from "preact/compat";
 import { generateQrCode } from "./qrcode";
 
-export interface WifiQrCodeCanvasProps
-  extends RefAttributes<HTMLCanvasElement> {
+export interface WifiQrCodeCanvasProps {
   readonly wifi: WifiDetails;
 }
 
-export const WifiQrCodeCanvas = ({ wifi, ref }: WifiQrCodeCanvasProps) => {
+export const WifiQrCodeCanvas = forwardRef<
+  HTMLCanvasElement,
+  WifiQrCodeCanvasProps
+>(({ wifi }, ref) => {
   const qrCode = generateQrCode(wifi);
 
   return (
@@ -21,4 +23,4 @@ export const WifiQrCodeCanvas = ({ wifi, ref }: WifiQrCodeCanvasProps) => {
       height="512px"
     />
   );
-};
+});
