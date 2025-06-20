@@ -15,7 +15,11 @@ export function useMediaQuery(
   }: UseMediaQueryOptions = {}
 ): boolean {
   const getMatches = (query: string): boolean => {
-    return window.matchMedia(query).matches;
+    // Prevents SSR issues
+    if (typeof window !== "undefined") {
+      return window.matchMedia(query).matches;
+    }
+    return defaultValue;
   };
 
   const [matches, setMatches] = useState<boolean>(() => {
@@ -60,7 +64,6 @@ const useSystemDarkModePreference = (): Theme => {
 };
 
 export const useTheme = () => {
-  const htmlRef = useRef(document.querySelector("html"));
   const systemTheme = useSystemDarkModePreference();
 
   const [theme, setTheme] = useState(systemTheme);
@@ -70,11 +73,9 @@ export const useTheme = () => {
   }, [systemTheme]);
 
   useEffect(() => {
-    if (!htmlRef.current) {
-      return;
+    if (typeof document !== "undefined") {
+      document.documentElement.dataset.theme = theme;
     }
-
-    htmlRef.current.dataset.theme = theme;
   }, [theme]);
 
   return {
