@@ -22,7 +22,7 @@ export const App = () => {
   }, []);
 
   if (!localesLoaded) {
-    return <></>;
+    return null;
   }
 
   return (
