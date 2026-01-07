@@ -15,7 +15,7 @@
     "@picocss/pico": "^2.1.1",
     "@preact/signals": "^2.5.1",
     "@theme-toggles/react": "^4.1.0",
-    "preact": "^10.28.1",
+    "preact": "^10.28.2",
     "preact-iso": "^2.11.1",
     "qrcode.react": "^4.2.0",
     "react": "npm:@preact/compat@^18.3.1",
