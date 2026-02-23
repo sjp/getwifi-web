@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "@picocss/pico": "^2.1.1",
-    "@preact/signals": "^2.8.0",
+    "@preact/signals": "^2.8.1",
     "@theme-toggles/react": "^4.1.0",
-    "preact": "^10.28.3",
+    "preact": "^10.28.4",
     "preact-iso": "^2.11.1",
     "qrcode.react": "^4.2.0",
     "react": "npm:@preact/compat@^18.3.1",
@@ -23,7 +23,7 @@
     "typesafe-i18n": "^5.27.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.4.0",
+    "@biomejs/biome": "^2.4.4",
     "@preact/preset-vite": "^2.10.3",
     "sass-embedded": "^1.97.3",
     "typescript": "^5.9.3",
