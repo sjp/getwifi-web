@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@picocss/pico": "^2.1.1",
-    "@preact/signals": "^2.8.1",
+    "@preact/signals": "^2.8.2",
     "@theme-toggles/react": "^4.1.0",
     "preact": "^10.28.4",
     "preact-iso": "^2.11.1",
@@ -23,7 +23,7 @@
     "typesafe-i18n": "^5.27.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.4.4",
+    "@biomejs/biome": "^2.4.6",
     "@preact/preset-vite": "^2.10.3",
     "sass-embedded": "^1.97.3",
     "typescript": "^5.9.3",
