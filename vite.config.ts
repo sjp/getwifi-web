@@ -8,6 +8,8 @@ export default defineConfig({
       prerender: {
         enabled: true,
         renderTarget: "#app",
-      }
-    })],
+      },
+    }),
+  ],
+  css: { preprocessorOptions: { scss: { quietDeps: true } } },
 });
