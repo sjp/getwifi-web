@@ -23,10 +23,10 @@
     "typesafe-i18n": "^5.27.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.4.11",
+    "@biomejs/biome": "^2.4.12",
     "@preact/preset-vite": "^2.10.5",
     "sass-embedded": "^1.99.0",
-    "typescript": "^6.0.2",
-    "vite": "^8.0.8"
+    "typescript": "^6.0.3",
+    "vite": "^8.0.9"
   }
 }
