@@ -16,7 +16,5 @@ export const WifiQrCodeSvg = ({ wifi, ref }: WifiQrCodeSvgProps) => {
 
   const qrCode = generateQrCode(wifi);
 
-  return (
-    <QRCodeSVG ref={ref} value={qrCode} level="H" marginSize={4} width="100%" height="100%" />
-  );
+  return <QRCodeSVG ref={ref} value={qrCode} level="H" marginSize={4} width="100%" height="100%" />;
 };

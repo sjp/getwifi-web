@@ -9,9 +9,8 @@
     <script>
       // Apply the theme before first paint to avoid a flash of the wrong theme
       // during hydration. Mirrors the system-preference default in use-theme.ts.
-      document.documentElement.dataset.theme = window.matchMedia(
-        "(prefers-color-scheme: dark)",
-      ).matches
+      document.documentElement.dataset.theme = window.matchMedia("(prefers-color-scheme: dark)")
+        .matches
         ? "dark"
         : "light";
     </script>
