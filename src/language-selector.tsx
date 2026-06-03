@@ -2,6 +2,7 @@ import type { ChangeEvent } from "preact/compat";
 import { useDocumentTitle } from "./hooks/use-document-title";
 import { useI18nContext } from "./i18n/i18n-react";
 import type { Locales } from "./i18n/i18n-types";
+import { loadLocaleAsync } from "./i18n/i18n-util.async";
 import { LanguageOption } from "./language-option";
 
 export const LanguageSelector = () => {
@@ -12,8 +13,11 @@ export const LanguageSelector = () => {
   return (
     <select
       class="lang-select"
-      onChange={(evt: ChangeEvent<HTMLSelectElement>) => {
+      onChange={async (evt: ChangeEvent<HTMLSelectElement>) => {
         const lcl = evt.currentTarget.value as Locales;
+        // The chosen locale's dictionary is code-split, so load it before
+        // switching (no-op once it has been loaded).
+        await loadLocaleAsync(lcl);
         setLocale(lcl);
       }}
     >
