@@ -63,15 +63,7 @@ type RootTranslation = {
 	 */
 	htmlTitle: string
 	/**
-	 * C​r​e​a​t​e​ ​W​i​F​i​ ​Q​R​ ​C​o​d​e​s​ ​i​n​ ​S​e​c​o​n​d​s​!
-	 */
-	ctaHeader: string
-	/**
-	 * S​h​a​r​i​n​g​ ​W​i​F​i​ ​c​r​e​d​e​n​t​i​a​l​s​ ​w​i​t​h​ ​a​ ​Q​R​ ​c​o​d​e​ ​m​a​k​e​s​ ​i​t​ ​e​a​s​y​ ​f​o​r​ ​y​o​u​r​ ​g​u​e​s​t​s​ ​t​o​ ​c​o​n​n​e​c​t​ ​t​o​ ​y​o​u​r​ ​W​i​F​i​ ​n​e​t​w​o​r​k​ ​w​i​t​h​o​u​t​ ​e​n​t​e​r​i​n​g​ ​a​ ​l​o​n​g​ ​a​n​d​ ​c​o​m​p​l​i​c​a​t​e​d​ ​p​a​s​s​w​o​r​d​.
-	 */
-	ctaDescription: string
-	/**
-	 * M​a​d​e​ ​b​y​ ​{​a​u​t​h​o​r​}
+	 * B​u​i​l​t​ ​b​y​ ​{​a​u​t​h​o​r​}
 	 * @param {string} author
 	 */
 	authorship: RequiredParams<'author'>
@@ -111,15 +103,7 @@ export type TranslationFunctions = {
 	 */
 	htmlTitle: () => LocalizedString
 	/**
-	 * Create WiFi QR Codes in Seconds!
-	 */
-	ctaHeader: () => LocalizedString
-	/**
-	 * Sharing WiFi credentials with a QR code makes it easy for your guests to connect to your WiFi network without entering a long and complicated password.
-	 */
-	ctaDescription: () => LocalizedString
-	/**
-	 * Made by {author}
+	 * Built by {author}
 	 */
 	authorship: (arg: { author: string }) => LocalizedString
 	/**

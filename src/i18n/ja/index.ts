@@ -8,8 +8,6 @@ const ja = {
   hidden: "非表示",
   print: "印刷",
   htmlTitle: "数秒でWiFi QRコードを作成",
-  ctaHeader: "数秒でWiFi QRコードを作成！",
-  ctaDescription: "QRコードでWiFi認証情報を共有することで、ゲストは長く複雑なパスワードを入力せずに簡単にWiFiネットワークに接続できます。",
   authorship: "{author}による作成",
   themeToggle: "テーマ切り替え"
 } satisfies Translation;

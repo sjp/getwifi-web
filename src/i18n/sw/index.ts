@@ -8,8 +8,6 @@ const sw = {
   hidden: "Fichwa",
   print: "Chapisha",
   htmlTitle: "Misimbo ya QR ya WiFi kwa Sekunde",
-  ctaHeader: "Tengeneza Misimbo ya QR ya WiFi kwa Sekunde!",
-  ctaDescription: "Kushiriki hati tambulishi za WiFi kwa msimbo wa QR hufanya iwe rahisi kwa wageni wako kuunganisha kwenye mtandao wako wa WiFi bila kuingiza nenosiri refu na ngumu.",
   authorship: "Imetengenezwa na {author}",
   themeToggle: "Badilisha Mandhari"
 } satisfies Translation;

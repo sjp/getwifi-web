@@ -8,8 +8,6 @@ const ar = {
   hidden: "مخفي",
   print: "طباعة",
   htmlTitle: "رموز QR للواي فاي في ثوانٍ",
-  ctaHeader: "أنشئ رموز QR للواي فاي في ثوانٍ!",
-  ctaDescription: "مشاركة بيانات اعتماد الواي فاي برمز QR تجعل من السهل لضيوفك الاتصال بشبكة الواي فاي الخاصة بك دون إدخال كلمة مرور طويلة ومعقدة.",
   authorship: "صنع بواسطة {author}",
   themeToggle: "تبديل السمة"
 } satisfies Translation;

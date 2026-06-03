@@ -8,8 +8,6 @@ const id = {
   hidden: "Tersembunyi",
   print: "Cetak",
   htmlTitle: "Kode QR WiFi dalam Hitungan Detik",
-  ctaHeader: "Buat Kode QR WiFi dalam Hitungan Detik!",
-  ctaDescription: "Berbagi kredensial WiFi dengan kode QR memudahkan tamu Anda untuk terhubung ke jaringan WiFi Anda tanpa perlu memasukkan kata sandi yang panjang dan rumit.",
   authorship: "Dibuat oleh {author}",
   themeToggle: "Ubah Tema"
 } satisfies Translation;
