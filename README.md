@@ -2,12 +2,15 @@
 
 ## CLI Commands
 
-- `npm install`: Installs dependencies
-- `npm run dev`: Run a development, HMR server
-- `npm run build`: Production-ready build
-- `npm run preview`: Run a production-like server
-- `npm run lint`: Scans code for potential issues via linting
-- `npm run typesafe-i18n`: Generates i18n code when translations are updated
+This project uses [Vite+](https://viteplus.dev/) as its unified toolchain, driven by the `vp` CLI.
+
+- `vp install`: Installs dependencies
+- `vp dev`: Run a development, HMR server
+- `vp build`: Production-ready build
+- `vp preview`: Run a production-like server
+- `vp check`: Format, lint, and type-check the code
+- `vp test`: Run the test suite
+- `vp run typesafe-i18n`: Generates i18n code when translations are updated
 
 ## Features
 
@@ -23,11 +26,10 @@ This project is largely an experiment in trying out different tools and librarie
 However for the most part this is built using the following:
 
 - [Preact](https://preactjs.com/)
-- [Vite](https://vite.dev/)
+- [Vite+](https://viteplus.dev/) (build, lint, format, and test tooling, built on Vite, Oxlint, and Oxfmt)
 - [Pico CSS](https://picocss.com/)
 - [qrcode.react](https://github.com/zpao/qrcode.react)
 - [typesafe-i18n](https://github.com/ivanhofer/typesafe-i18n)
-- [Biome](https://biomejs.dev/)
 
 The choice of many of these libraries was to minimise the bundle size as much as possible.
 
