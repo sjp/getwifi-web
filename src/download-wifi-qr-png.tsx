@@ -9,10 +9,7 @@ export interface DownloadWifiQrCodePngProps {
   readonly onDownloaded: () => void;
 }
 
-export const DownloadWifiQrCodePng = ({
-  wifi,
-  onDownloaded,
-}: DownloadWifiQrCodePngProps) => {
+export const DownloadWifiQrCodePng = ({ wifi, onDownloaded }: DownloadWifiQrCodePngProps) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {

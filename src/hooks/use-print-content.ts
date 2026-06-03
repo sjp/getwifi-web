@@ -34,19 +34,17 @@ const removePrintIframe = () => {
 const appendPrintIframe = (
   printFrame: HTMLIFrameElement,
   contentNode: SVGSVGElement,
-  documentTitle?: string
+  documentTitle?: string,
 ) => {
   printFrame.onload = () => {
     setTimeout(() => {
       if (printFrame.contentWindow) {
         printFrame.contentWindow.focus();
 
-        const domDoc =
-          printFrame.contentDocument || printFrame.contentWindow?.document;
+        const domDoc = printFrame.contentDocument || printFrame.contentWindow?.document;
         domDoc?.body.appendChild(contentNode);
 
-        const tempContentDocumentTitle =
-          printFrame.contentDocument?.title ?? "";
+        const tempContentDocumentTitle = printFrame.contentDocument?.title ?? "";
         const tempOwnerDocumentTitle = printFrame.ownerDocument.title;
 
         if (documentTitle) {
@@ -78,10 +76,7 @@ const appendPrintIframe = (
   document.body.appendChild(printFrame);
 };
 
-export const usePrintContent = ({
-  contentRef,
-  documentTitle,
-}: UsePrintContentOptions) => {
+export const usePrintContent = ({ contentRef, documentTitle }: UsePrintContentOptions) => {
   return useCallback(() => {
     // Ensure we remove any pre-existing print windows before adding a new one
     removePrintIframe();

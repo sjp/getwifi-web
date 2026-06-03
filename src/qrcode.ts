@@ -17,9 +17,7 @@ export const generateQrCode = (input: WifiDetails): string => {
   const ssid = `S:${escapeInput(input.ssid)};`;
   const password = input.password ? `P:${escapeInput(input.password)};` : "";
   const enc = input.authType
-    ? `T:${
-        input.authType === "none" ? "nopass" : input.authType.toUpperCase()
-      };`
+    ? `T:${input.authType === "none" ? "nopass" : input.authType.toUpperCase()};`
     : "";
   const hidden = input.hidden ? "H:true;" : "";
   return `WIFI:${ssid}${password}${enc}${hidden}`;

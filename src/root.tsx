@@ -66,8 +66,7 @@ export const Root = () => {
                     <select
                       name="encryption"
                       onInput={(evt) => {
-                        authType.value = evt.currentTarget
-                          .value as WifiAuthType;
+                        authType.value = evt.currentTarget.value as WifiAuthType;
                       }}
                     >
                       <option value="wpa">WPA / WPA2 / WPA3</option>

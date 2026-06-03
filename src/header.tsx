@@ -12,7 +12,7 @@ export const Header = () => {
     (toggled: boolean) => {
       setTheme(toggled ? "dark" : "light");
     },
-    [setTheme]
+    [setTheme],
   );
 
   return (
@@ -24,9 +24,7 @@ export const Header = () => {
           alignItems: "center",
         }}
       >
-        <strong style={{ marginBottom: "var(--pico-spacing)" }}>
-          getwifi.link
-        </strong>
+        <strong style={{ marginBottom: "var(--pico-spacing)" }}>getwifi.link</strong>
         <div
           class="container"
           style={{

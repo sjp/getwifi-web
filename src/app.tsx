@@ -9,8 +9,7 @@ import { detectLocale } from "./i18n/i18n-util";
 // Detect locale
 // Use as advanced locale detection strategy as you like.
 // More info: https://github.com/ivanhofer/typesafe-i18n/tree/main/packages/detectors)
-const detectedLocale =
-  typeof window !== "undefined" ? detectLocale(navigatorDetector) : "en";
+const detectedLocale = typeof window !== "undefined" ? detectLocale(navigatorDetector) : "en";
 
 export const App = () => {
   // Load locales
