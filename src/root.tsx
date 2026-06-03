@@ -27,7 +27,7 @@ export const Root = () => {
   const svgRef = useRef<SVGSVGElement | null>(null);
   const print = usePrintContent({
     contentRef: svgRef,
-    documentTitle: `WiFi - ${ssid}`,
+    documentTitle: `WiFi - ${ssid.value}`,
   });
   const { LL } = useI18nContext();
 
