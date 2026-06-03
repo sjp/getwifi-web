@@ -10,6 +10,7 @@ import { PrinterIcon } from "./icons/printer-icon";
 import { Header } from "./header";
 import { Footer } from "./footer";
 import { useI18nContext } from "./i18n/i18n-react";
+import { useHtmlLang } from "./hooks/use-html-lang";
 
 export const Root = () => {
   const ssid = useSignal("");
@@ -29,7 +30,8 @@ export const Root = () => {
     contentRef: svgRef,
     documentTitle: `WiFi - ${ssid.value}`,
   });
-  const { LL } = useI18nContext();
+  const { LL, locale } = useI18nContext();
+  useHtmlLang(locale);
 
   return (
     <>
