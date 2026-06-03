@@ -9,7 +9,8 @@ const ur = {
   print: "پرنٹ",
   htmlTitle: "سیکنڈوں میں وائی فائی کیو آر کوڈز",
   authorship: "{author} کی طرف سے بنایا گیا",
-  themeToggle: "تھیم کو ٹوگل کریں"
+  themeToggle: "تھیم کو ٹوگل کریں",
+  language: "زبان"
 } satisfies Translation;
 
 export default ur;

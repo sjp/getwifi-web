@@ -9,7 +9,8 @@ const ta = {
   print: "அச்சிடு",
   htmlTitle: "நொடிகளில் வைஃபை க்யூஆர் குறியீடுகள்",
   authorship: "{author} உருவாக்கியது",
-  themeToggle: "தீம் மாற்றி"
+  themeToggle: "தீம் மாற்றி",
+  language: "மொழி"
 } satisfies Translation;
 
 export default ta;

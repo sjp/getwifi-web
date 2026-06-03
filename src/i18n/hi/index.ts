@@ -9,7 +9,8 @@ const hi = {
   print: "प्रिंट",
   htmlTitle: "सेकंड में वाईफाई क्यूआर कोड",
   authorship: "{author} द्वारा बनाया गया",
-  themeToggle: "थीम टॉगल करें"
+  themeToggle: "थीम टॉगल करें",
+  language: "भाषा"
 } satisfies Translation;
 
 export default hi;

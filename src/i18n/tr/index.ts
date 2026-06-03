@@ -9,7 +9,8 @@ const tr = {
   print: "Yazdır",
   htmlTitle: "Saniyeler İçinde WiFi QR Kodları",
   authorship: "{author} tarafından yapıldı",
-  themeToggle: "Temayı Değiştir"
+  themeToggle: "Temayı Değiştir",
+  language: "Dil"
 } satisfies Translation;
 
 export default tr;

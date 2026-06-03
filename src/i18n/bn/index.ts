@@ -9,7 +9,8 @@ const bn = {
   print: "প্রিন্ট",
   htmlTitle: "সেকেন্ডে ওয়াইফাই কিউআর কোড",
   authorship: "{author} দ্বারা নির্মিত",
-  themeToggle: "থিম টগল করুন"
+  themeToggle: "থিম টগল করুন",
+  language: "ভাষা"
 } satisfies Translation;
 
 export default bn;

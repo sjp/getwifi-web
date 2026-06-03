@@ -9,7 +9,8 @@ const sw = {
   print: "Chapisha",
   htmlTitle: "Misimbo ya QR ya WiFi kwa Sekunde",
   authorship: "Imetengenezwa na {author}",
-  themeToggle: "Badilisha Mandhari"
+  themeToggle: "Badilisha Mandhari",
+  language: "Lugha"
 } satisfies Translation;
 
 export default sw;

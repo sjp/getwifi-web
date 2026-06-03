@@ -9,7 +9,8 @@ const es = {
   print: "Imprimir",
   htmlTitle: "Códigos QR de WiFi en segundos",
   authorship: "Hecho por {author}",
-  themeToggle: "Cambiar tema"
+  themeToggle: "Cambiar tema",
+  language: "Idioma"
 } satisfies Translation;
 
 export default es;

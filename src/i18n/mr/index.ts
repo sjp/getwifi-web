@@ -9,7 +9,8 @@ const mr = {
   print: "प्रिंट",
   htmlTitle: "सेकंदात वायफाय क्यूआर कोड",
   authorship: "{author} द्वारे बनविले",
-  themeToggle: "थीम टॉगल करा"
+  themeToggle: "थीम टॉगल करा",
+  language: "भाषा"
 } satisfies Translation;
 
 export default mr;

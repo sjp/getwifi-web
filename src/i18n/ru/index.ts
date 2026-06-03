@@ -9,7 +9,8 @@ const ru = {
   print: "Печать",
   htmlTitle: "QR-коды WiFi за секунды",
   authorship: "Сделано {author}",
-  themeToggle: "Переключить тему"
+  themeToggle: "Переключить тему",
+  language: "Язык"
 } satisfies Translation;
 
 export default ru;

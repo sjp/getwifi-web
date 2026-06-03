@@ -9,7 +9,8 @@ const ja = {
   print: "印刷",
   htmlTitle: "数秒でWiFi QRコードを作成",
   authorship: "{author}による作成",
-  themeToggle: "テーマ切り替え"
+  themeToggle: "テーマ切り替え",
+  language: "言語"
 } satisfies Translation;
 
 export default ja;

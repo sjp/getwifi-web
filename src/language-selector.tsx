@@ -13,6 +13,7 @@ export const LanguageSelector = () => {
   return (
     <select
       class="lang-select"
+      aria-label={LL.language()}
       onChange={async (evt: ChangeEvent<HTMLSelectElement>) => {
         const lcl = evt.currentTarget.value as Locales;
         // The chosen locale's dictionary is code-split, so load it before

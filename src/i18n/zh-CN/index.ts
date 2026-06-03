@@ -9,7 +9,8 @@ const zh_CN = {
   print: "打印",
   htmlTitle: "秒速生成 WiFi 二维码",
   authorship: "由 {author} 製作",
-  themeToggle: "切换主题"
+  themeToggle: "切换主题",
+  language: "语言"
 } satisfies Translation;
 
 export default zh_CN;

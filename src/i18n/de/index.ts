@@ -9,7 +9,8 @@ const de = {
   print: "Drucken",
   htmlTitle: "WLAN-QR-Codes in Sekunden",
   authorship: "Erstellt von {author}",
-  themeToggle: "Theme umschalten"
+  themeToggle: "Theme umschalten",
+  language: "Sprache"
 } satisfies Translation;
 
 export default de;

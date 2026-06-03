@@ -9,7 +9,8 @@ const ko = {
   print: "인쇄",
   htmlTitle: "몇 초 만에 와이파이 QR 코드 생성",
   authorship: "{author}이(가) 제작함",
-  themeToggle: "테마 전환"
+  themeToggle: "테마 전환",
+  language: "언어"
 } satisfies Translation;
 
 export default ko;

@@ -9,7 +9,8 @@ const zh_TW = {
   print: "列印",
   htmlTitle: "秒速生成 WiFi QR 碼",
   authorship: "由 {author} 製作",
-  themeToggle: "切換主題"
+  themeToggle: "切換主題",
+  language: "語言"
 } satisfies Translation;
 
 export default zh_TW;

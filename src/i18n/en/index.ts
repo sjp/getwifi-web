@@ -9,7 +9,8 @@ const en = {
   print: "Print",
   htmlTitle: 'WiFi QR Codes in Seconds',
   authorship: 'Built by {author:string}',
-  themeToggle: 'Toggle Theme'
+  themeToggle: 'Toggle Theme',
+  language: 'Language'
 } satisfies BaseTranslation;
 
 export default en;

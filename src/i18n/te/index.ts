@@ -9,7 +9,8 @@ const te = {
   print: "ముద్రించు",
   htmlTitle: "సెకన్లలో వైఫై క్యూఆర్ కోడ్‌లు",
   authorship: "{author} చేత తయారు చేయబడింది",
-  themeToggle: "థీమ్‌ను టోగుల్ చేయండి"
+  themeToggle: "థీమ్‌ను టోగుల్ చేయండి",
+  language: "భాష"
 } satisfies Translation;
 
 export default te;

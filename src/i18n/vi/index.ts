@@ -9,7 +9,8 @@ const vi = {
   print: "In",
   htmlTitle: "Mã QR WiFi trong Tích tắc",
   authorship: "Được tạo bởi {author}",
-  themeToggle: "Chuyển đổi Giao diện"
+  themeToggle: "Chuyển đổi Giao diện",
+  language: "Ngôn ngữ"
 } satisfies Translation;
 
 export default vi;

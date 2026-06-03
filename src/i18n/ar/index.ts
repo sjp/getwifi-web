@@ -9,7 +9,8 @@ const ar = {
   print: "طباعة",
   htmlTitle: "رموز QR للواي فاي في ثوانٍ",
   authorship: "صنع بواسطة {author}",
-  themeToggle: "تبديل السمة"
+  themeToggle: "تبديل السمة",
+  language: "اللغة"
 } satisfies Translation;
 
 export default ar;

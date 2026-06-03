@@ -9,7 +9,8 @@ const id = {
   print: "Cetak",
   htmlTitle: "Kode QR WiFi dalam Hitungan Detik",
   authorship: "Dibuat oleh {author}",
-  themeToggle: "Ubah Tema"
+  themeToggle: "Ubah Tema",
+  language: "Bahasa"
 } satisfies Translation;
 
 export default id;

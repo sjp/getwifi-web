@@ -71,6 +71,10 @@ type RootTranslation = {
 	 * T​o​g​g​l​e​ ​T​h​e​m​e
 	 */
 	themeToggle: string
+	/**
+	 * L​a​n​g​u​a​g​e
+	 */
+	language: string
 }
 
 export type TranslationFunctions = {
@@ -110,6 +114,10 @@ export type TranslationFunctions = {
 	 * Toggle Theme
 	 */
 	themeToggle: () => LocalizedString
+	/**
+	 * Language
+	 */
+	language: () => LocalizedString
 }
 
 export type Formatters = {}
