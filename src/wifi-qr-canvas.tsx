@@ -12,13 +12,6 @@ export const WifiQrCodeCanvas = ({ wifi, ref }: WifiQrCodeCanvasProps) => {
   const qrCode = generateQrCode(wifi);
 
   return (
-    <QRCodeCanvas
-      ref={ref}
-      value={qrCode}
-      level="H"
-      includeMargin={true}
-      width="512px"
-      height="512px"
-    />
+    <QRCodeCanvas ref={ref} value={qrCode} level="H" marginSize={4} size={512} />
   );
 };
