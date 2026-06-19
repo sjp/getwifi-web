@@ -26,12 +26,17 @@ export default defineConfig({
     passWithNoTests: true,
   },
   plugins: [
+    // `@preact/preset-vite` types its plugin against the standalone `vite`
+    // package, whereas vite-plus types `plugins` against its own bundled vite
+    // (`@voidzero-dev/vite-plus-core`). The two `Plugin` types are structurally
+    // identical but distinct, so comparing them blows the TS recursion depth
+    // (TS2321/TS2769). Casting sidesteps the cross-package comparison.
     preact({
       prerender: {
         enabled: true,
         renderTarget: "#app",
       },
-    }),
+    }) as never,
   ],
   css: { preprocessorOptions: { scss: { quietDeps: true } } },
 });
