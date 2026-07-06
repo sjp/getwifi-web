@@ -15,7 +15,7 @@
     "@picocss/pico": "^2.1.1",
     "@preact/signals": "^2.9.2",
     "@theme-toggles/react": "^4.1.0",
-    "preact": "^10.29.3",
+    "preact": "^10.29.4",
     "preact-iso": "^2.12.0",
     "qrcode.react": "^4.2.0",
     "react": "npm:@preact/compat@^18.3.2",
@@ -26,7 +26,7 @@
     "@preact/preset-vite": "^2.10.5",
     "sass-embedded": "^1.100.0",
     "typescript": "^6.0.3",
-    "vite-plus": "0.2.1"
+    "vite-plus": "0.2.2"
   },
   "packageManager": "npm@11.16.0"
 }
