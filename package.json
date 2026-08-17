@@ -13,10 +13,10 @@
   },
   "dependencies": {
     "@picocss/pico": "^2.1.1",
-    "@preact/signals": "^2.11.0",
+    "@preact/signals": "^2.11.1",
     "@theme-toggles/react": "^4.1.0",
     "preact": "^10.29.8",
-    "preact-iso": "^2.12.1",
+    "preact-iso": "^2.12.2",
     "qrcode.react": "^4.2.0",
     "react": "npm:@preact/compat@^18.3.2",
     "react-dom": "npm:@preact/compat@^18.3.2",
@@ -24,9 +24,9 @@
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.10.6",
-    "sass-embedded": "^1.100.0",
+    "sass-embedded": "^1.102.0",
     "typescript": "^7.0.2",
-    "vite-plus": "0.2.8"
+    "vite-plus": "0.2.9"
   },
   "packageManager": "npm@11.16.0"
 }
