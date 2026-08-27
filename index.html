@@ -8,11 +8,20 @@
     <meta name="color-scheme" content="dark light" />
     <script>
       // Apply the theme before first paint to avoid a flash of the wrong theme
-      // during hydration. Mirrors the system-preference default in use-theme.ts.
-      document.documentElement.dataset.theme = window.matchMedia("(prefers-color-scheme: dark)")
-        .matches
-        ? "dark"
-        : "light";
+      // during hydration. Mirrors use-theme.ts: a persisted explicit choice wins,
+      // otherwise follow the system preference.
+      (function () {
+        var stored = null;
+        try {
+          stored = localStorage.getItem("theme");
+        } catch (e) {}
+        document.documentElement.dataset.theme =
+          stored === "dark" || stored === "light"
+            ? stored
+            : window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+      })();
     </script>
     <title>WiFi QR Codes in Seconds - getwifi.link</title>
     <meta

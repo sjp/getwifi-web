@@ -6,13 +6,14 @@ import { loadLocaleAsync } from "./i18n/i18n-util.async";
 import { LanguageOption } from "./language-option";
 
 export const LanguageSelector = () => {
-  const { LL, setLocale } = useI18nContext();
+  const { LL, locale, setLocale } = useI18nContext();
   const title = `${LL.htmlTitle()} - getwifi.link`;
   useDocumentTitle(title);
 
   return (
     <select
       class="lang-select"
+      value={locale}
       aria-label={LL.language()}
       onChange={async (evt: ChangeEvent<HTMLSelectElement>) => {
         const lcl = evt.currentTarget.value as Locales;

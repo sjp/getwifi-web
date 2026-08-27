@@ -1,6 +1,5 @@
 import type { RefObject } from "preact";
 import { useCallback } from "preact/hooks";
-import { getElement } from "../get-element";
 
 export interface UsePrintContentOptions {
   contentRef?: RefObject<SVGSVGElement | null>;
@@ -81,14 +80,14 @@ export const usePrintContent = ({ contentRef, documentTitle }: UsePrintContentOp
     // Ensure we remove any pre-existing print windows before adding a new one
     removePrintIframe();
 
-    const contentNode = getElement(contentRef?.current || null);
+    const contentNode = contentRef?.current;
     if (!contentNode) {
       return;
     }
 
     // NOTE: `canvas` elements do not have their painted images copied
     // https://developer.mozilla.org/en-US/docs/Web/API/Node/cloneNode
-    const clonedContentNode = contentNode.cloneNode(true);
+    const clonedContentNode = contentNode.cloneNode(true) as SVGSVGElement;
 
     const printFrame = createPrintIframe();
 

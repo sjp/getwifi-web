@@ -4,7 +4,7 @@ import { useEffect, useRef } from "preact/hooks";
 import type { Locales } from "./i18n/i18n-types";
 import { loadLocaleAsync } from "./i18n/i18n-util.async";
 import { usePrintContent } from "./hooks/use-print-content";
-import { downloadSvg } from "./download-content";
+import { downloadSvg, qrFileName } from "./download-content";
 import { DownloadWifiQrCodePng } from "./download-wifi-qr-png";
 import { WifiQrCodeSvg } from "./wifi-qr-svg";
 import { DownloadIcon } from "./icons/download-icon";
@@ -30,6 +30,8 @@ export const Root = ({ detectedLocale }: RootProps) => {
     hidden: hidden.value,
   }));
   const shouldDownloadPng = useSignal(false);
+  const hasSsid = ssid.value.length > 0;
+  const noPassword = authType.value === "none";
 
   const svgRef = useRef<SVGSVGElement | null>(null);
   const print = usePrintContent({
@@ -76,6 +78,7 @@ export const Root = ({ detectedLocale }: RootProps) => {
                     <input
                       name="password"
                       type="password"
+                      disabled={noPassword}
                       onInput={(evt) => {
                         password.value = evt.currentTarget.value;
                       }}
@@ -113,13 +116,15 @@ export const Root = ({ detectedLocale }: RootProps) => {
                 <button
                   class="outline secondary"
                   type="button"
-                  onClick={() => downloadSvg(svgRef.current)}
+                  disabled={!hasSsid}
+                  onClick={() => downloadSvg(svgRef.current, qrFileName(ssid.value, "svg"))}
                 >
                   <DownloadIcon /> SVG
                 </button>
                 <button
                   class="outline secondary"
                   type="button"
+                  disabled={!hasSsid}
                   onClick={() => {
                     shouldDownloadPng.value = true;
                   }}
@@ -129,6 +134,7 @@ export const Root = ({ detectedLocale }: RootProps) => {
                 <button
                   class="outline secondary"
                   type="button"
+                  disabled={!hasSsid}
                   onClick={() => {
                     print();
                   }}

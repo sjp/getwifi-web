@@ -1,8 +1,7 @@
 import { useEffect, useRef } from "preact/hooks";
 import type { WifiDetails } from "./wifi";
 import { WifiQrCodeCanvas } from "./wifi-qr-canvas";
-import { downloadPng } from "./download-content";
-import { getElement } from "./get-element";
+import { downloadPng, qrFileName } from "./download-content";
 
 export interface DownloadWifiQrCodePngProps {
   readonly wifi: WifiDetails;
@@ -13,16 +12,7 @@ export const DownloadWifiQrCodePng = ({ wifi, onDownloaded }: DownloadWifiQrCode
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
-    if (!canvasRef.current) {
-      return;
-    }
-
-    const canvasElement = getElement(canvasRef.current);
-    if (!canvasElement) {
-      return;
-    }
-
-    downloadPng(canvasElement);
+    downloadPng(canvasRef.current, qrFileName(wifi.ssid, "png"));
     onDownloaded();
   }, []);
 

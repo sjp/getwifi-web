@@ -1,6 +1,32 @@
-import { useEffect, useLayoutEffect, useState } from "preact/hooks";
+import { useCallback, useEffect, useLayoutEffect, useState } from "preact/hooks";
 
 export type Theme = "light" | "dark";
+
+// Keep in sync with the inline pre-paint script in index.html.
+const STORAGE_KEY = "theme";
+
+const isTheme = (value: unknown): value is Theme => value === "light" || value === "dark";
+
+const readStoredTheme = (): Theme | null => {
+  try {
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    return isTheme(stored) ? stored : null;
+  } catch {
+    return null;
+  }
+};
+
+const writeStoredTheme = (theme: Theme | null) => {
+  try {
+    if (theme === null) {
+      window.localStorage.removeItem(STORAGE_KEY);
+    } else {
+      window.localStorage.setItem(STORAGE_KEY, theme);
+    }
+  } catch {
+    // Storage may be unavailable (private mode, disabled); persistence is best-effort.
+  }
+};
 
 type UseMediaQueryOptions = {
   defaultValue?: boolean;
@@ -37,19 +63,10 @@ export function useMediaQuery(
     // Triggered at the first client-side load and if query changes
     handleChange();
 
-    // Use deprecated `addListener` and `removeListener` to support Safari < 14
-    if (matchMedia.addListener) {
-      matchMedia.addListener(handleChange);
-    } else {
-      matchMedia.addEventListener("change", handleChange);
-    }
+    matchMedia.addEventListener("change", handleChange);
 
     return () => {
-      if (matchMedia.removeListener) {
-        matchMedia.removeListener(handleChange);
-      } else {
-        matchMedia.removeEventListener("change", handleChange);
-      }
+      matchMedia.removeEventListener("change", handleChange);
     };
   }, [query]);
 
@@ -60,14 +77,27 @@ const useSystemDarkModePreference = (): Theme => {
   return useMediaQuery("(prefers-color-scheme: dark)") ? "dark" : "light";
 };
 
+// The active theme is the user's explicitly chosen theme (persisted across
+// reloads) when one exists, otherwise the system preference. Choosing the theme
+// that matches the system preference clears the stored choice so the page goes
+// back to following the OS setting.
 export const useTheme = () => {
   const systemTheme = useSystemDarkModePreference();
 
-  const [theme, setTheme] = useState(systemTheme);
+  const [storedTheme, setStoredTheme] = useState<Theme | null>(() =>
+    typeof window !== "undefined" ? readStoredTheme() : null,
+  );
 
-  useEffect(() => {
-    setTheme(systemTheme);
-  }, [systemTheme]);
+  const theme = storedTheme ?? systemTheme;
+
+  const setTheme = useCallback(
+    (next: Theme) => {
+      const toStore = next === systemTheme ? null : next;
+      setStoredTheme(toStore);
+      writeStoredTheme(toStore);
+    },
+    [systemTheme],
+  );
 
   useEffect(() => {
     if (typeof document !== "undefined") {

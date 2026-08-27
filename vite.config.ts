@@ -21,10 +21,7 @@ export default defineConfig({
       typeCheck: true,
     },
   },
-  test: {
-    // No test suites yet; don't fail the test command until some exist.
-    passWithNoTests: true,
-  },
+  test: {},
   plugins: [
     // `@preact/preset-vite` types its plugin against the standalone `vite`
     // package, whereas vite-plus types `plugins` against its own bundled vite
