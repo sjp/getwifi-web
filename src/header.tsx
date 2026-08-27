@@ -17,22 +17,9 @@ export const Header = () => {
 
   return (
     <header>
-      <div
-        class="container"
-        style={{
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        <strong style={{ marginBottom: "var(--pico-spacing)" }}>getwifi.link</strong>
-        <div
-          class="container"
-          style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            gap: "var(--pico-spacing)",
-          }}
-        >
+      <div class="container header-bar">
+        <strong>getwifi.link</strong>
+        <div class="header-actions">
           <Classic
             title={LL.themeToggle()}
             aria-label={LL.themeToggle()}

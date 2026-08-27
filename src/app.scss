@@ -16,10 +16,10 @@
     // Content
     "content/link": true,
     "content/typography": true,
-    "content/embedded": true,
+    "content/embedded": false,
     "content/button": true,
     "content/table": false,
-    "content/code": true,
+    "content/code": false,
     "content/figure": false,
     "content/miscs": true,
 
@@ -34,8 +34,8 @@
 
     // Components
     "components/accordion": false,
-    "components/card": true,
-    "components/dropdown": true,
+    "components/card": false,
+    "components/dropdown": false,
     "components/group": false,
     "components/loading": false,
     "components/modal": false,
@@ -51,6 +51,19 @@
 
 footer {
   text-align: center;
+}
+
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--pico-spacing);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--pico-spacing);
 }
 
 .qr-column {
