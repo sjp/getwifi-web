@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@picocss/pico": "^2.1.1",
-    "@preact/signals": "^2.11.1",
+    "@preact/signals": "^2.11.2",
     "preact": "^10.29.8",
     "preact-iso": "^2.12.2",
     "qrcode.react": "^4.2.0",
@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.10.6",
-    "sass-embedded": "^1.103.1",
+    "sass-embedded": "^1.104.0",
     "typescript": "^7.0.2",
     "vite-plus": "0.3.0"
   },
