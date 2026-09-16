@@ -2,15 +2,15 @@ const downloadContent = (url: string, fileName: string) => {
   const downloadLink = document.createElement("a");
   downloadLink.href = url;
   downloadLink.download = fileName;
-  document.body.appendChild(downloadLink);
+  document.body.append(downloadLink);
   downloadLink.click();
-  document.body.removeChild(downloadLink);
+  downloadLink.remove();
 };
 
 // Builds a filesystem-safe filename from the SSID, e.g. "wifi-My Cafe-qrcode.svg".
 export const qrFileName = (ssid: string, extension: string): string => {
   const safe = ssid
-    .replace(/[<>:"/\\|?*]/g, "")
+    .replaceAll(/[<>:"/\\|?*]/gu, "")
     .trim()
     .slice(0, 100);
   return `wifi${safe ? `-${safe}` : ""}-qrcode.${extension}`;

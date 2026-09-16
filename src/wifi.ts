@@ -1,8 +1,11 @@
 export type WifiAuthType = "none" | "wep" | "wpa";
 
+export const isWifiAuthType = (value: string): value is WifiAuthType =>
+  value === "none" || value === "wep" || value === "wpa";
+
 export interface WifiDetails {
-  ssid: string;
-  password?: string;
-  authType?: WifiAuthType;
-  hidden?: boolean;
+  readonly ssid: string;
+  readonly password?: string;
+  readonly authType?: WifiAuthType;
+  readonly hidden?: boolean;
 }

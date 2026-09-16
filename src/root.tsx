@@ -1,17 +1,13 @@
 import { useComputed, useSignal } from "@preact/signals";
 import type { WifiAuthType, WifiDetails } from "./wifi";
-import { useEffect, useRef } from "preact/hooks";
+import { WifiForm } from "./wifi-form";
 import type { Locales } from "./i18n/i18n-types";
-import { loadLocaleAsync } from "./i18n/i18n-util.async";
-import { usePrintContent } from "./hooks/use-print-content";
-import { downloadSvg, qrFileName } from "./download-content";
 import { DownloadWifiQrCodePng } from "./download-wifi-qr-png";
-import { WifiQrCodeSvg } from "./wifi-qr-svg";
-import { DownloadIcon } from "./icons/download-icon";
-import { PrinterIcon } from "./icons/printer-icon";
+import { QrPanel } from "./qr-panel";
 import { Header } from "./header";
 import { Footer } from "./footer";
 import { useI18nContext } from "./i18n/i18n-react";
+import { useDetectedLocale } from "./hooks/use-detected-locale";
 import { useHtmlLang } from "./hooks/use-html-lang";
 
 export interface RootProps {
@@ -30,28 +26,10 @@ export const Root = ({ detectedLocale }: RootProps) => {
     hidden: hidden.value,
   }));
   const shouldDownloadPng = useSignal(false);
-  const hasSsid = ssid.value.length > 0;
-  const noPassword = authType.value === "none";
 
-  const svgRef = useRef<SVGSVGElement | null>(null);
-  const print = usePrintContent({
-    contentRef: svgRef,
-    documentTitle: `WiFi - ${ssid.value}`,
-  });
-  const { LL, locale, setLocale } = useI18nContext();
+  const { locale } = useI18nContext();
   useHtmlLang(locale);
-
-  // The first render uses the base locale ('en') so the prerender and hydration
-  // agree. Once on the client, upgrade to the visitor's detected locale by
-  // lazily loading its (code-split) dictionary, then switching. Runs on mount
-  // only; subsequent locale changes come from the selector. On failure we simply
-  // stay on the base locale.
-  useEffect(() => {
-    if (detectedLocale === locale) {
-      return;
-    }
-    void loadLocaleAsync(detectedLocale).then(() => setLocale(detectedLocale));
-  }, []);
+  useDetectedLocale(detectedLocale);
 
   return (
     <>
@@ -60,89 +38,9 @@ export const Root = ({ detectedLocale }: RootProps) => {
         <section>
           <div class="grid">
             <div>
-              <form autocomplete="off">
-                <fieldset>
-                  <label>
-                    {LL.ssid()}
-                    <input
-                      name="ssid"
-                      autofocus={true}
-                      type="text"
-                      onInput={(evt) => {
-                        ssid.value = evt.currentTarget.value;
-                      }}
-                    />
-                  </label>
-                  <label>
-                    {LL.password()}
-                    <input
-                      name="password"
-                      type="password"
-                      disabled={noPassword}
-                      onInput={(evt) => {
-                        password.value = evt.currentTarget.value;
-                      }}
-                    />
-                  </label>
-                  <label>
-                    {LL.encryption()}
-                    <select
-                      name="encryption"
-                      onInput={(evt) => {
-                        authType.value = evt.currentTarget.value as WifiAuthType;
-                      }}
-                    >
-                      <option value="wpa">WPA / WPA2 / WPA3</option>
-                      <option value="none">None</option>
-                      <option value="wep">WEP</option>
-                    </select>
-                  </label>
-                  <label>
-                    <input
-                      name="hidden"
-                      type="checkbox"
-                      onChange={() => {
-                        hidden.value = !hidden.value;
-                      }}
-                    />
-                    {LL.hidden()}
-                  </label>
-                </fieldset>
-              </form>
+              <WifiForm ssid={ssid} password={password} authType={authType} hidden={hidden} />
             </div>
-            <div class="qr-column">
-              <WifiQrCodeSvg wifi={qrparams.value} ref={svgRef} />
-              <div class="qr-operations">
-                <button
-                  class="outline secondary"
-                  type="button"
-                  disabled={!hasSsid}
-                  onClick={() => downloadSvg(svgRef.current, qrFileName(ssid.value, "svg"))}
-                >
-                  <DownloadIcon /> SVG
-                </button>
-                <button
-                  class="outline secondary"
-                  type="button"
-                  disabled={!hasSsid}
-                  onClick={() => {
-                    shouldDownloadPng.value = true;
-                  }}
-                >
-                  <DownloadIcon /> PNG
-                </button>
-                <button
-                  class="outline secondary"
-                  type="button"
-                  disabled={!hasSsid}
-                  onClick={() => {
-                    print();
-                  }}
-                >
-                  <PrinterIcon /> {LL.print()}
-                </button>
-              </div>
-            </div>
+            <QrPanel wifi={qrparams.value} shouldDownloadPng={shouldDownloadPng} />
           </div>
         </section>
       </main>

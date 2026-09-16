@@ -29,15 +29,15 @@ const writeStoredTheme = (theme: Theme | null) => {
 };
 
 type UseMediaQueryOptions = {
-  defaultValue?: boolean;
-  initializeWithValue?: boolean;
+  readonly defaultValue?: boolean;
+  readonly initializeWithValue?: boolean;
 };
 
 export function useMediaQuery(
   query: string,
   { defaultValue = false, initializeWithValue = true }: UseMediaQueryOptions = {},
 ): boolean {
-  const getMatches = (query: string): boolean => {
+  const getMatches = (): boolean => {
     // Prevents SSR issues
     if (typeof window !== "undefined") {
       return window.matchMedia(query).matches;
@@ -47,14 +47,14 @@ export function useMediaQuery(
 
   const [matches, setMatches] = useState<boolean>(() => {
     if (initializeWithValue) {
-      return getMatches(query);
+      return getMatches();
     }
     return defaultValue;
   });
 
   // Handles the change event of the media query.
   const handleChange = () => {
-    setMatches(getMatches(query));
+    setMatches(getMatches());
   };
 
   useLayoutEffect(() => {
@@ -85,7 +85,7 @@ export const useTheme = () => {
   const systemTheme = useSystemDarkModePreference();
 
   const [storedTheme, setStoredTheme] = useState<Theme | null>(() =>
-    typeof window !== "undefined" ? readStoredTheme() : null,
+    typeof window === "undefined" ? null : readStoredTheme(),
   );
 
   const theme = storedTheme ?? systemTheme;

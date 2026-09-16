@@ -2,8 +2,8 @@ import type { RefObject } from "preact";
 import { useCallback } from "preact/hooks";
 
 export interface UsePrintContentOptions {
-  contentRef?: RefObject<SVGSVGElement | null>;
-  documentTitle?: string;
+  readonly contentRef?: RefObject<SVGSVGElement | null>;
+  readonly documentTitle?: string;
 }
 
 const FRAME_ID = "printIframe";
@@ -24,29 +24,26 @@ const createPrintIframe = () => {
 };
 
 const removePrintIframe = () => {
-  const documentPrintWindow = document.getElementById(FRAME_ID);
-  if (documentPrintWindow) {
-    document.body.removeChild(documentPrintWindow);
-  }
+  document.querySelector(`#${FRAME_ID}`)?.remove();
 };
 
 const appendPrintIframe = (
   printFrame: HTMLIFrameElement,
-  contentNode: SVGSVGElement,
+  contentNode: Node,
   documentTitle?: string,
 ) => {
-  printFrame.onload = () => {
+  printFrame.addEventListener("load", () => {
     setTimeout(() => {
       if (printFrame.contentWindow) {
         printFrame.contentWindow.focus();
 
-        const domDoc = printFrame.contentDocument || printFrame.contentWindow?.document;
-        domDoc?.body.appendChild(contentNode);
+        const domDoc = printFrame.contentDocument ?? printFrame.contentWindow.document;
+        domDoc.body.append(contentNode);
 
         const tempContentDocumentTitle = printFrame.contentDocument?.title ?? "";
         const tempOwnerDocumentTitle = printFrame.ownerDocument.title;
 
-        if (documentTitle) {
+        if (documentTitle !== undefined && documentTitle !== "") {
           // Print filename in Chrome
           printFrame.ownerDocument.title = documentTitle;
 
@@ -59,7 +56,7 @@ const appendPrintIframe = (
         printFrame.contentWindow.print();
 
         // Restore the page's original title information
-        if (documentTitle) {
+        if (documentTitle !== undefined && documentTitle !== "") {
           printFrame.ownerDocument.title = tempOwnerDocumentTitle;
 
           if (printFrame.contentDocument) {
@@ -70,9 +67,9 @@ const appendPrintIframe = (
         removePrintIframe();
       }
     }, 500);
-  };
+  });
 
-  document.body.appendChild(printFrame);
+  document.body.append(printFrame);
 };
 
 export const usePrintContent = ({ contentRef, documentTitle }: UsePrintContentOptions) => {
@@ -87,7 +84,7 @@ export const usePrintContent = ({ contentRef, documentTitle }: UsePrintContentOp
 
     // NOTE: `canvas` elements do not have their painted images copied
     // https://developer.mozilla.org/en-US/docs/Web/API/Node/cloneNode
-    const clonedContentNode = contentNode.cloneNode(true) as SVGSVGElement;
+    const clonedContentNode = contentNode.cloneNode(true);
 
     const printFrame = createPrintIframe();
 

@@ -3,10 +3,36 @@
   "plugins": ["typescript", "unicorn", "oxc"],
   "options": {
     "typeAware": true,
-    "typeCheck": true
+    "typeCheck": true,
+    "denyWarnings": true,
+    "reportUnusedDisableDirectives": "error"
   },
+  // `style` and `restriction` are deliberately left off: they are aesthetic
+  // preferences (and `restriction` bans async/await and optional chaining),
+  // not correctness. `nursery` is unstable by definition.
   "categories": {
-    "correctness": "error"
+    "correctness": "error",
+    "suspicious": "error",
+    "pedantic": "error",
+    "perf": "error"
+  },
+  "rules": {
+    // Signals, refs and DOM nodes are mutable by design, and JSX event handler
+    // parameters get their types from Preact rather than from an annotation
+    // we control, so none of them can satisfy this rule.
+    "typescript/prefer-readonly-parameter-types": [
+      "error",
+      {
+        "ignoreInferredTypes": true,
+        "allow": [
+          { "from": "package", "package": "@preact/signals-core", "name": "Signal" },
+          { "from": "package", "package": "preact", "name": ["Ref", "RefObject"] },
+          { "from": "package", "package": "preact", "name": "ComponentChildren" },
+          { "from": "lib", "name": ["Node", "Element", "HTMLElement", "HTMLIFrameElement"] },
+          { "from": "lib", "name": ["HTMLCanvasElement", "SVGSVGElement"] }
+        ]
+      }
+    ]
   },
   "env": {
     "builtin": true

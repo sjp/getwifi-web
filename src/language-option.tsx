@@ -1,8 +1,8 @@
 import type { Locales } from "./i18n/i18n-types";
 
 interface LanguageOptionProps {
-  name: string;
-  locale: Locales;
+  readonly name: string;
+  readonly locale: Locales;
 }
 
 export const LanguageOption = ({ name, locale }: LanguageOptionProps) => {

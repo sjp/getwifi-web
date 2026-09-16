@@ -7,9 +7,12 @@ export const Main = () => {
 };
 
 if (typeof window !== "undefined") {
-  hydrate(<Main />, document.getElementById("app") as HTMLElement);
+  const appRoot = document.querySelector("#app");
+  if (appRoot) {
+    hydrate(<Main />, appRoot);
+  }
 }
 
-export const prerender = async () => {
-  return await ssr(<Main />);
+export const prerender = () => {
+  return ssr(<Main />);
 };

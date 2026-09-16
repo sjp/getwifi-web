@@ -10,6 +10,11 @@ import type { Translations } from "./i18n/i18n-types";
 // imports) and fetched on demand: the detected locale after hydration, and any
 // locale chosen via the language selector.
 export const loadBaseLocale = (): void => {
+  // The generated dictionary widens interpolated strings to `string`, losing the
+  // template-literal types `Translations` expects. typesafe-i18n's own generated
+  // loader asserts identically; we cannot reuse it because it statically imports
+  // every locale, which would defeat the code-splitting described above.
+  // oxlint-disable-next-line typescript/no-unsafe-type-assertion
   loadedLocales[baseLocale] = en as unknown as Translations;
   loadedFormatters[baseLocale] = initFormatters(baseLocale);
 };
