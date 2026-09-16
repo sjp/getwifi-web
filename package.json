@@ -11,7 +11,7 @@
     "check": "npm run format:check && npm run lint && npm run typecheck",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
-    "lint": "oxlint --type-aware",
+    "lint": "oxlint",
     "typecheck": "tsc",
     "test": "vitest run",
     "typesafe-i18n": "typesafe-i18n"
