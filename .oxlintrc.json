@@ -1,0 +1,12 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc"],
+  "categories": {
+    "correctness": "error"
+  },
+  "env": {
+    "builtin": true
+  },
+  // Generated i18n output (typesafe-i18n) and build output are not ours to lint.
+  "ignorePatterns": ["src/i18n/**", "dist/**"]
+}

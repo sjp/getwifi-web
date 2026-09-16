@@ -1,0 +1,5 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  // Generated i18n output (typesafe-i18n) and build output are not ours to format.
+  "ignorePatterns": ["src/i18n/**", "dist/**"]
+}
