@@ -18,8 +18,6 @@ describe("main", () => {
   it("hydrates into the #app element", async () => {
     document.body.innerHTML = '<div id="app"></div>';
     await import("./main");
-    await vi.waitFor(() => {
-      expect(document.querySelector("#app header")).not.toBeNull();
-    });
+    expect(document.querySelector("#app header")).not.toBeNull();
   });
 });

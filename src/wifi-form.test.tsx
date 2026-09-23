@@ -33,14 +33,13 @@ describe("WifiForm", () => {
     expect(password.value).toBe("secret");
   });
 
-  it("disables the password for open networks", async () => {
+  it("disables the password for open networks", () => {
     const { authType } = renderForm();
     const passwordInput = screen.getByLabelText<HTMLInputElement>("Password");
     expect(passwordInput.disabled).toBe(false);
 
     fireEvent.input(screen.getByLabelText("Encryption"), { target: { value: "none" } });
     expect(authType.value).toBe("none");
-    await Promise.resolve();
     expect(passwordInput.disabled).toBe(true);
 
     fireEvent.input(screen.getByLabelText("Encryption"), { target: { value: "wep" } });

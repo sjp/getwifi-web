@@ -1,4 +1,4 @@
-import { renderHook, waitFor } from "@testing-library/preact";
+import { renderHook } from "@testing-library/preact";
 import type { ComponentChildren } from "preact";
 import { describe, expect, it, vi } from "vitest";
 import TypesafeI18n, { useI18nContext } from "../i18n/i18n-react";
@@ -35,7 +35,7 @@ describe("useDetectedLocale", () => {
   it("loads and switches to a different detected locale", async () => {
     const { result } = renderDetected("de");
     expect(loadLocaleAsync).toHaveBeenCalledWith("de");
-    await waitFor(() => {
+    await vi.waitFor(() => {
       expect(result.current.locale).toBe("de");
     });
     expect(result.current.LL.password()).toBe("Passwort");

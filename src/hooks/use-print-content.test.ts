@@ -35,12 +35,10 @@ const createSvgRef = () => {
 
 describe("usePrintContent", () => {
   beforeEach(() => {
-    vi.useFakeTimers();
     document.title = "Original";
   });
 
   afterEach(() => {
-    vi.useRealTimers();
     document.body.innerHTML = "";
   });
 

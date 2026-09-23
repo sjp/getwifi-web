@@ -1,5 +1,5 @@
-import { fireEvent, screen, waitFor } from "@testing-library/preact";
-import { beforeEach, describe, expect, it } from "vitest";
+import { fireEvent, screen } from "@testing-library/preact";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { Header } from "./header";
 import { useI18nContext } from "./i18n/i18n-react";
 import { mockMatchMedia } from "./test/match-media";
@@ -50,7 +50,7 @@ describe("Header", () => {
     select.value = "fr";
     fireEvent(select, new Event("change", { bubbles: true }));
 
-    await waitFor(() => {
+    await vi.waitFor(() => {
       expect(screen.getByRole("status").textContent).toBe("fr");
     });
     expect(select.value).toBe("fr");

@@ -15,20 +15,19 @@ describe("Root", () => {
     expect(document.documentElement.dir).toBe("ltr");
   });
 
-  it("renders a QR code once an SSID is entered", async () => {
+  it("renders a QR code once an SSID is entered", () => {
     const { container } = renderWithI18n(<Root detectedLocale="en" />);
     const qrSvg = () => container.querySelector(".qr-column svg");
     expect(qrSvg()?.getAttribute("viewBox")).toBe("0 0 33 33");
     expect(screen.getByRole<HTMLButtonElement>("button", { name: /SVG/u }).disabled).toBe(true);
 
     fireEvent.input(screen.getByLabelText("SSID / Network ID"), { target: { value: "Cafe" } });
-    await Promise.resolve();
 
     expect(qrSvg()?.getAttribute("viewBox")).not.toBe("0 0 33 33");
     expect(screen.getByRole<HTMLButtonElement>("button", { name: /SVG/u }).disabled).toBe(false);
   });
 
-  it("downloads a PNG and then removes the offscreen canvas", async () => {
+  it("downloads a PNG and then removes the offscreen canvas", () => {
     vi.spyOn(HTMLCanvasElement.prototype, "toDataURL").mockReturnValue("data:image/png;base64,");
     const downloads: string[] = [];
     vi.spyOn(HTMLAnchorElement.prototype, "click").mockImplementation(function (
@@ -39,13 +38,9 @@ describe("Root", () => {
     const { container } = renderWithI18n(<Root detectedLocale="en" />);
 
     fireEvent.input(screen.getByLabelText("SSID / Network ID"), { target: { value: "Cafe" } });
-    await Promise.resolve();
     fireEvent.click(screen.getByRole("button", { name: /PNG/u }));
-    await vi.waitFor(() => {
-      expect(downloads).toEqual(["wifi-Cafe-qrcode.png"]);
-    });
-    await vi.waitFor(() => {
-      expect(container.querySelector("canvas")).toBeNull();
-    });
+
+    expect(downloads).toEqual(["wifi-Cafe-qrcode.png"]);
+    expect(container.querySelector("canvas")).toBeNull();
   });
 });
