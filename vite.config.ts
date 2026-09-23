@@ -15,6 +15,7 @@ export default defineConfig({
   css: { preprocessorOptions: { scss: { quietDeps: true } } },
   test: {
     environment: "happy-dom",
+    pool: "vmThreads",
     restoreMocks: true,
     setupFiles: ["src/test/setup.ts"],
     coverage: {
