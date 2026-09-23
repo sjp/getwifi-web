@@ -2,6 +2,7 @@ import { fireEvent, screen } from "@testing-library/preact";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { Header } from "./header";
 import { useI18nContext } from "./i18n/i18n-react";
+import { loadLocaleAsync } from "./i18n/i18n-util.async";
 import { mockMatchMedia } from "./test/match-media";
 import { renderWithI18n } from "./test/render";
 
@@ -36,6 +37,9 @@ describe("Header", () => {
   });
 
   it("switches language from the selector", async () => {
+    // Preload the locale so the selector's dynamic import resolves from the module
+    // cache rather than racing `vi.waitFor`'s timeout on a cold, loaded run.
+    await loadLocaleAsync("fr");
     renderWithI18n(
       <>
         <Header />
