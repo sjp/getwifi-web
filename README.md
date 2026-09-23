@@ -9,6 +9,7 @@
 - `npm run check`: Format-check, lint, and type-check the code
 - `npm run format`: Apply formatting
 - `npm test`: Run the test suite
+- `npm run test:coverage`: Run the test suite with a coverage report
 - `npm run typesafe-i18n`: Generates i18n code when translations are updated
 
 ## Features

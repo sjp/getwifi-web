@@ -18,7 +18,7 @@ export const DownloadWifiQrCodePng = ({ wifi, onDownloaded }: DownloadWifiQrCode
 
   return (
     <div style={{ display: "none" }}>
-      <WifiQrCodeCanvas wifi={wifi} ref={canvasRef} />
+      <WifiQrCodeCanvas wifi={wifi} canvasRef={canvasRef} />
     </div>
   );
 };

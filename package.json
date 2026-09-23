@@ -14,6 +14,7 @@
     "lint": "oxlint",
     "typecheck": "tsc",
     "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "typesafe-i18n": "typesafe-i18n"
   },
   "dependencies": {
@@ -28,6 +29,9 @@
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.10.6",
+    "@testing-library/preact": "^3.2.4",
+    "@vitest/coverage-v8": "^5.0.1",
+    "happy-dom": "^20.14.5",
     "oxfmt": "^0.68.0",
     "oxlint": "^1.83.0",
     "oxlint-tsgolint": "^7.0.2002",

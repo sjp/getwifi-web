@@ -6,15 +6,17 @@ import type { Ref } from "preact";
 
 export interface WifiQrCodeSvgProps {
   readonly wifi: WifiDetails;
-  readonly ref: Ref<SVGSVGElement>;
+  readonly svgRef: Ref<SVGSVGElement>;
 }
 
-export const WifiQrCodeSvg = ({ wifi, ref }: WifiQrCodeSvgProps) => {
+export const WifiQrCodeSvg = ({ wifi, svgRef }: WifiQrCodeSvgProps) => {
   if (!wifi.ssid) {
-    return <EmptyQrSvg ref={ref} />;
+    return <EmptyQrSvg svgRef={svgRef} />;
   }
 
   const qrCode = generateQrCode(wifi);
 
-  return <QRCodeSVG ref={ref} value={qrCode} level="H" marginSize={4} width="100%" height="100%" />;
+  return (
+    <QRCodeSVG ref={svgRef} value={qrCode} level="H" marginSize={4} width="100%" height="100%" />
+  );
 };

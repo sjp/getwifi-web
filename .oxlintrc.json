@@ -29,11 +29,18 @@
           { "from": "package", "package": "preact", "name": ["Ref", "RefObject"] },
           { "from": "package", "package": "preact", "name": "ComponentChildren" },
           { "from": "lib", "name": ["Node", "Element", "HTMLElement", "HTMLIFrameElement"] },
-          { "from": "lib", "name": ["HTMLCanvasElement", "SVGSVGElement"] }
+          { "from": "lib", "name": ["HTMLAnchorElement", "HTMLCanvasElement", "SVGSVGElement"] }
         ]
       }
     ]
   },
+  "overrides": [
+    {
+      // `describe` blocks naturally grow long as cases are added.
+      "files": ["**/*.test.{ts,tsx}"],
+      "rules": { "max-lines-per-function": "off" }
+    }
+  ],
   "env": {
     "builtin": true
   },

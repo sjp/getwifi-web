@@ -5,11 +5,11 @@ import type { Ref } from "preact";
 
 export interface WifiQrCodeCanvasProps {
   readonly wifi: WifiDetails;
-  readonly ref: Ref<HTMLCanvasElement>;
+  readonly canvasRef: Ref<HTMLCanvasElement>;
 }
 
-export const WifiQrCodeCanvas = ({ wifi, ref }: WifiQrCodeCanvasProps) => {
+export const WifiQrCodeCanvas = ({ wifi, canvasRef }: WifiQrCodeCanvasProps) => {
   const qrCode = generateQrCode(wifi);
 
-  return <QRCodeCanvas ref={ref} value={qrCode} level="H" marginSize={4} size={512} />;
+  return <QRCodeCanvas ref={canvasRef} value={qrCode} level="H" marginSize={4} size={512} />;
 };

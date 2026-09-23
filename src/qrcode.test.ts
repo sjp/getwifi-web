@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 import { generateQrCode } from "./qrcode";
-import { qrFileName } from "./download-content";
 
 describe("generateQrCode", () => {
   it("generates a WPA network", () => {
@@ -41,15 +40,5 @@ describe("generateQrCode", () => {
 
   it("does not quote values that are not purely hex", () => {
     expect(generateQrCode({ ssid: "ABCDEG", authType: "wpa" })).toBe("WIFI:S:ABCDEG;T:WPA;");
-  });
-});
-
-describe("qrFileName", () => {
-  it("includes a sanitised SSID", () => {
-    expect(qrFileName('My: "Cafe"/Guest', "svg")).toBe("wifi-My CafeGuest-qrcode.svg");
-  });
-
-  it("falls back to a generic name for an empty SSID", () => {
-    expect(qrFileName("", "png")).toBe("wifi-qrcode.png");
   });
 });

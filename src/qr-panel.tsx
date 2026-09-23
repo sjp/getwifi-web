@@ -24,7 +24,7 @@ export const QrPanel = ({ wifi, shouldDownloadPng }: QrPanelProps) => {
 
   return (
     <div class="qr-column">
-      <WifiQrCodeSvg wifi={wifi} ref={svgRef} />
+      <WifiQrCodeSvg wifi={wifi} svgRef={svgRef} />
       <div class="qr-operations">
         <button
           class="outline secondary"
