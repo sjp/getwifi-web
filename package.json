@@ -19,8 +19,8 @@
   },
   "dependencies": {
     "@picocss/pico": "^2.1.1",
-    "@preact/signals": "^2.11.2",
-    "preact": "^10.29.8",
+    "@preact/signals": "^2.11.3",
+    "preact": "^11.0.0",
     "preact-iso": "^2.12.2",
     "qrcode.react": "^4.2.0",
     "react": "npm:@preact/compat@^18.3.2",
@@ -30,14 +30,14 @@
   "devDependencies": {
     "@preact/preset-vite": "^2.10.6",
     "@testing-library/preact": "^3.2.4",
-    "@vitest/coverage-v8": "^5.0.2",
+    "@vitest/coverage-v8": "^5.0.3",
     "happy-dom": "^20.14.5",
-    "oxfmt": "^0.70.0",
-    "oxlint": "^1.85.0",
+    "oxfmt": "^0.71.0",
+    "oxlint": "^1.86.0",
     "oxlint-tsgolint": "^7.0.2003",
-    "sass-embedded": "^1.105.0",
+    "sass-embedded": "^1.105.1",
     "typescript": "^7.0.2",
-    "vite": "^8.3.1",
+    "vite": "^8.3.2",
     "vitest": "^5.0.1"
   }
 }
